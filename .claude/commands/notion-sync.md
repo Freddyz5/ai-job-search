@@ -47,37 +47,51 @@ Validate the cheap, local precondition before creating anything external. A run 
 
 ---
 
-## Step 3: Load Sync State and Locate the Database *(Notion binding)*
+## Step 3: Locate the Database *(Freddy binding — existing Job Tracker, not a new database)*
 
-1. Read `job_scraper/notion_sync.json`. Structure:
-   ```json
-   { "database_id": "...", "database_url": "...", "last_sync": "YYYY-MM-DD" }
-   ```
-2. If it exists, verify the database id still resolves in Notion. If the database was deleted, treat this as a first run.
-3. **First run:** search the workspace for a database named "Job Search Pipeline". If none exists, ask the user where to create it (top-level page or an existing page they name), then create it with exactly these properties:
+This fork points at Freddy's existing **📋 Job Tracker** database. It never searches the
+workspace for a "Job Search Pipeline" database and never creates a new one.
 
-   | Property | Type | Values / notes |
-   |----------|------|----------------|
-   | Name | title | `<Role> — <Company>` |
-   | Company | rich text | |
-   | Score | number | 0-100 from `rank_score` |
-   | Verdict | select | Strong Fit / Good Fit / Moderate Fit / Weak Fit / Poor Fit |
-   | Status | select | ranked / applied / interview / offer / hired / rejected / no response / withdrawn / expired |
-   | Fit | select | high / medium / low (scraper quick-fit) |
-   | Deadline | date | omit when unknown |
-   | First seen | date | |
-   | Ranked | date | `rank_date` from `seen_jobs.json`; omit when not ranked |
-   | Applied on | date | tracker `date` column; omit when not in the tracker |
-   | Channel | select | tracker `channel` column (e.g. portal / email / referral); options grow as values appear |
-   | CV file | rich text | tracker `cv_file` column - the filename only, never document content |
-   | Cover letter | rich text | tracker `cover_letter_file` column - the filename only, never document content |
-   | URL | url | posting URL |
-   | Key | rich text | the job's key in `seen_jobs.json` - dedup anchor, never edited by hand |
+1. Data source: `collection://28a47e44-eb30-48ad-a544-a8d8600b7cd1` ("📋 Job Tracker").
+2. Verify the database id still resolves in Notion. If it does not (deleted or renamed), stop
+   and tell the user plainly — do not fall back to searching or creating a database.
+3. Property mapping (framework concept → Job Tracker property):
 
-   The tracker-sourced properties (Applied on, Channel, CV file, Cover letter) stay empty for jobs that have no tracker row - they fill in once `/outcome` records the application. Only filenames ever sync; document contents stay local.
+   | Framework concept | Job Tracker property | Notes |
+   |---|---|---|
+   | Name (title) | `Empresa / Rol` | `<Empresa> – <Rol>` |
+   | Score (0-100) | `Fit` | reuse the existing number field — do **not** create a separate "Score" |
+   | Status | `Estado` | value map in Step 3.4 — write-once, see Step 4.3 |
+   | Channel | `Plataforma` | values already match: LinkedIn / Arc.dev / GetOnBrd / Turing / Wellfound / Upwork / Otro |
+   | URL | `Link oferta` | |
+   | Applied on | `Fecha aplicacion` | |
+   | Key (dedup anchor) | `Key` | **new property — add if missing (rich text), never shown to the user, never edited by hand** |
 
-4. **Existing database with missing properties:** if the located database predates a schema addition (a property from the table above does not exist), add the missing properties to the database before upserting. Never remove or retype existing properties.
-5. Write `job_scraper/notion_sync.json` with the database id and URL. This file is personal state and is gitignored - never commit it.
+   Framework concepts with **no home in Job Tracker — never write these, never add properties
+   for them**: Company (redundant with the title), Verdict, Deadline, First seen, Ranked,
+   CV file, Cover letter. `CV usado` and `Notas` are Freddy's own manually-managed fields;
+   this command never writes to them either.
+
+4. Status value map (framework status → `Estado` option), used **only when creating a new
+   page** (see Step 4.2):
+
+   | Framework status | `Estado` option |
+   |---|---|
+   | ranked | Por aplicar |
+   | applied | Aplicado |
+   | interview | Entrevista |
+   | offer | Oferta |
+   | hired | Oferta |
+   | rejected | Rechazado |
+   | no response / withdrawn / expired | Descartado |
+
+   `Estado` also has `En revision` and `Technical test`, which the framework has no equivalent
+   for — these are Freddy's own manually-managed pipeline stages, set by hand in Notion as he
+   progresses. Never write them, and never overwrite them (Step 4.3).
+
+5. Add the `Key` property to the database if it does not already exist (type: rich text). Do
+   not add, remove, or retype any other property.
+6. Write `job_scraper/notion_sync.json` with `{ "database_id": "28a47e44-eb30-48ad-a544-a8d8600b7cd1", "last_sync": "YYYY-MM-DD" }`. This file is personal state and is gitignored — never commit it.
 
 ---
 
@@ -86,9 +100,19 @@ Validate the cheap, local precondition before creating anything external. A run 
 For each job in the sync set:
 
 1. Query the database for a page whose `Key` equals the job's key.
-2. **No match** → create the page with all properties from the Step 3 table, then write its body (Step 5).
-3. **Match** → update **properties only**: Status, Score, Verdict, Deadline, Ranked, Applied on, Channel, CV file, Cover letter. Properties are the always-current surface (bodies are write-once), so tracker updates recorded by `/outcome` reach the destination exclusively through them. Do not touch the page body - the user may have added their own notes there, and clobbering them breaks trust in the whole view. (`--rebuild` is the sole exception.)
-4. Never delete or archive pages, even for jobs that turned `expired` - set Status to `expired` instead. Rows the user added to the database by hand (no `Key` value) are invisible to this command.
+2. **No match** → create the page with `Empresa / Rol`, `Fit` (Score), `Estado` (from the
+   Step 3.4 value map), `Plataforma` (Channel), `Link oferta` (URL), `Fecha aplicacion`
+   (Applied on, if present in the tracker), and `Key`. Then write its body (Step 5).
+3. **Match** → update **only** `Fit` (Score) and `Fecha aplicacion` (Applied on, if it newly
+   appears in the tracker). **Never touch `Estado` on an existing page** — Freddy manages that
+   field by hand in Notion, including stages the framework doesn't track (`En revision`,
+   `Technical test`), and overwriting it would clobber real pipeline state he entered himself.
+   Do not touch the page body either - the user may have added their own notes there, and
+   clobbering them breaks trust in the whole view. (`--rebuild` is the sole exception, and even
+   `--rebuild` must not touch `Estado`.)
+4. Never delete or archive pages, and never change `Estado` to reflect `expired` or similar -
+   that judgment belongs to Freddy, not this command. Rows the user added to the database by
+   hand (no `Key` value) are invisible to this command.
 
 Batch politely: if the MCP server rate-limits, back off and continue; report any page that failed rather than retrying indefinitely.
 
