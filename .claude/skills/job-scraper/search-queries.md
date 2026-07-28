@@ -10,11 +10,10 @@ The `site:` query templates in this file are the **WebSearch fallback** — for 
 
 ## Search Sites
 
-Primary (your market's job boards - scaffold one with `/add-portal`):
-- **[YOUR_JOB_BOARD]** - your market's largest general job board
-- **linkedin.com/jobs** - LinkedIn job listings (filter: [YOUR_COUNTRY] / [YOUR_CITY]); also covered by `linkedin-search` CLI
-- **[YOUR_INDUSTRY_JOB_BOARD]** - a niche/industry board for your field (optional)
-- **[YOUR_ADDITIONAL_JOB_BOARD]** - another major board for your market (optional)
+Primary (remote-first / global boards - candidate is not restricted to a local market):
+- **getonbrd.com** - Latin America-focused tech job board; covered by `getonbrd-search` CLI
+- **arc.dev** - remote-first software developer job board; covered by `arc-dev-search` CLI
+- **linkedin.com/jobs** - LinkedIn job listings, remote-global filter; also covered by `linkedin-search` CLI
 
 Secondary (company career pages via Google):
 - Direct Google searches with `site:` filters for known target companies
@@ -23,53 +22,55 @@ Secondary (company career pages via Google):
 
 Queries are grouped by priority. Each query should be combined with your location terms (e.g. your city, region, or metro area) where the site supports it.
 
-### Priority 1: [YOUR_PRIMARY_ROLE_TYPE]
+### Priority 1: Full Stack Developer (remote)
 
-These match your strongest and most desired career direction.
-
-```
-site:[YOUR_JOB_BOARD] "[YOUR_PRIMARY_JOB_TITLE]" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_KEY_SKILL]" [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_PRIMARY_JOB_TITLE]" [YOUR_COUNTRY]
-```
-
-### Priority 2: [YOUR_DOMAIN_EXPERTISE]
-
-These match your domain expertise.
+These match the strongest and most desired career direction.
 
 ```
-site:[YOUR_JOB_BOARD] [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] OR [YOUR_REGION]
-site:[YOUR_JOB_BOARD] [YOUR_DOMAIN_KEYWORD_2] [YOUR_COUNTRY]
-site:linkedin.com/jobs [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] [YOUR_COUNTRY]
+site:getonbrd.com "Full Stack Developer" remote
+site:arc.dev "Full Stack Engineer" remote
+site:linkedin.com/jobs "Full Stack Developer" remote
+site:linkedin.com/jobs "Full Stack Engineer" remote
 ```
 
-### Priority 3: [YOUR_ADJACENT_ROLE_TYPE]
+### Priority 2: Backend-leaning roles (Node.js / TypeScript)
 
-Adjacent roles you could pivot into.
-
-```
-site:[YOUR_JOB_BOARD] "[YOUR_ADJACENT_TITLE_1]" [YOUR_KEY_SKILL] [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_ADJACENT_TITLE_2]" [YOUR_KEY_SKILL] [YOUR_CITY]
-```
-
-### Priority 4: Broader Technical / Consulting
-
-Wider net for general technical roles.
+Backend depth is the active growth direction - candidate is deliberately pivoting more senior here.
 
 ```
-site:[YOUR_JOB_BOARD] [YOUR_KEY_SKILL] developer [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_KEY_SKILL] developer" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "technical consultant" [YOUR_DOMAIN] [YOUR_CITY]
+site:getonbrd.com "Backend Developer" Node.js remote
+site:arc.dev "Backend Developer" TypeScript remote
+site:linkedin.com/jobs "Backend Developer" "Node.js" remote
+site:linkedin.com/jobs "Software Engineer" GraphQL remote
+```
+
+### Priority 3: Adjacent roles
+
+Roles the candidate is genuinely qualified for even if not the primary title.
+
+```
+site:getonbrd.com "JavaScript Developer" OR "TypeScript Developer" remote
+site:arc.dev "Frontend Developer" React remote
+site:linkedin.com/jobs "Frontend Developer" "Next.js" remote
+```
+
+### Priority 4: Broader technical net
+
+Wider net for general remote technical roles matching the core stack.
+
+```
+site:linkedin.com/jobs "TypeScript developer" remote
+site:getonbrd.com React OR Node.js developer remote
+site:arc.dev GraphQL developer remote
 ```
 
 ## Location Filter
 
-When evaluating results, verify the job location is within reasonable commute distance from your home. Define acceptable areas:
-- [YOUR_CITY] and surrounding areas
-- [ACCEPTABLE_AREA_1]
-- [ACCEPTABLE_AREA_2]
-- [BORDERLINE_AREA] (borderline - ~X min by transit)
-- [TOO_FAR_AREA] (too far)
+Candidate is based in Quito, Ecuador but is **not** filtering by commute distance:
+- **Remote (any country)**: PASS - primary target
+- **Relocation supported by employer**: PASS
+- **Hybrid, any location**: not being pursued (see `04-job-evaluation.md` Location & Logistics gate)
+- **On-site with no relocation support, outside Quito**: FAIL
 
 ## Date Filter
 

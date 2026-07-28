@@ -16,42 +16,49 @@ Keep answers to 1-2 minutes. Be specific. End with what you learned or would do 
 
 <!-- These are populated by /setup from your actual experience. Below are templates showing the format. -->
 
-### 1. [PROJECT_NAME] ([SKILL_DEMONSTRATED])
-**S:** [CONTEXT - what was happening, what was the problem]
-**T:** [YOUR RESPONSIBILITY - what you specifically needed to do]
-**A:** [WHAT YOU DID - specific actions, tools, methods]
-**R:** [OUTCOME - measurable results, adoption, impact]
-**Use for:** "[QUESTION_TYPE_1]", "[QUESTION_TYPE_2]"
+### 1. TCI Warehouse Factory-Pattern Redesign (Architecture / adapting to change)
+**S:** TCI's air-cargo platform had one direct, hardcoded integration with an external warehouse over SOAP for guide synchronization.
+**T:** When the team needed to integrate a second warehouse, I needed a design that would not require rewriting the existing integration.
+**A:** I proposed and implemented a Factory-pattern abstraction with per-provider repositories and normalization in a base class, so each new warehouse plugs in as an adapter.
+**R:** The second warehouse integrated cleanly without touching the first provider's logic, and the pattern became the template for any future warehouse.
+**Use for:** "Tell me about a time you improved an existing design", "How do you approach extensibility?", "Describe a technical decision you made independently"
 
-### 2. [PROJECT_NAME] ([SKILL_DEMONSTRATED])
-**S:** [CONTEXT]
-**T:** [YOUR RESPONSIBILITY]
-**A:** [WHAT YOU DID]
-**R:** [OUTCOME]
-**Use for:** "[QUESTION_TYPE_1]", "[QUESTION_TYPE_2]"
+### 2. Media Value Terms-and-Conditions Feature (End-to-end ownership)
+**S:** Media Value needed an auditable record of terms-and-conditions acceptance for already-registered pharmacy users.
+**T:** I was asked to design (with senior approval) and build the feature end to end.
+**A:** I built the domain entity, application services with criteria-based search, GraphQL API, database migration, and frontend hooks, following hexagonal architecture.
+**R:** The feature shipped as a fully auditable acceptance record used across the platform, delivered independently after senior sign-off on the design.
+**Use for:** "Describe a project you owned end to end", "Tell me about designing something from scratch"
 
-### 3. [PROJECT_NAME] ([SKILL_DEMONSTRATED])
-**S:** [CONTEXT]
-**T:** [YOUR RESPONSIBILITY]
-**A:** [WHAT YOU DID]
-**R:** [OUTCOME]
-**Use for:** "[QUESTION_TYPE_1]", "[QUESTION_TYPE_2]"
+### 3. MTC Mobile E2E Test Takeover (Stepping up / adaptability)
+**S:** Two developers left the MTC cold-chain project, leaving its mobile end-to-end test suite unmaintained and incomplete.
+**T:** I took over completing the automation.
+**A:** I wrote Maestro flows for quarantine, spill test, cleaning, returns, and conditioning in both QR and manual variants, with data-preparation scripts, and standardized the existing flows.
+**R:** The mobile app regained reliable end-to-end coverage across its critical operational flows.
+**Use for:** "Tell me about picking up someone else's unfinished work", "How do you handle sudden gaps in a team?"
+
+### 4. Expense Control Platform Backend Takeover (Initiative / learning under pressure)
+**S:** A personal side project began as a collaboration - a teammate owned the Java backend, I owned the frontend.
+**T:** When he left the project due to lack of time, I had to decide whether to find a replacement or take the backend on myself.
+**A:** I took over the entire backend and rewrote it in TypeScript on hexagonal architecture/DDD, deliberately using it as practice for patterns I wanted to strengthen: aggregate roots, domain events, a custom Criteria pattern, and separate read/write repositories.
+**R:** 480+ commits later, it is a deployed, evolving full-stack platform (web, mobile, GraphQL API) that also became my proof point for backend architecture skills.
+**Use for:** "Tell me about a time you had to learn something fast", "Why do you want to move toward backend work?", "Tell me about a personal project you're proud of"
 
 <!-- Add more STAR examples as needed. Aim for 4-6 covering different competencies. -->
 
 ## Common Tough Questions
 
-### "Why did you leave [previous company]?"
-> [PREPARE YOUR ANSWER - be honest, forward-looking, no negativity about former employer]
+### "Why are you looking to leave Init Grammers?" (still currently employed there)
+> Rotating across four products at Init Grammers gave me full-stack range across frontend, backend, mobile, and infrastructure, and I'm proud of what I built there. I'm looking for a role where I can go deeper on backend and architecture specifically, rather than rotating broadly, and where I own that scope with less repeated re-review before decisions can move forward. No negativity about the employer - frame as pursuing depth, not escaping something.
 
-### "You don't have [specific skill/experience]."
-> [PREPARE YOUR ANSWER - acknowledge the gap, bridge to adjacent experience, show willingness to learn]
+### "You don't have [formal backend title / years of experience with X]."
+> I haven't held a formal backend-only title, but backend work - domain modeling, GraphQL API design, PostgreSQL schema design - is already the majority of what I do day to day across three concurrent production products, and it's the direction I'm actively deepening (see the Expense Control Platform: I took over and rebuilt an entire backend solo). Acknowledge any genuinely new tool/language gap directly, bridge to the closest adjacent experience, and state willingness to ramp up.
 
 ### "Where do you see yourself in 5 years?"
-> [PREPARE YOUR ANSWER - show ambition aligned with the role's growth path]
+> Owning backend/architecture decisions for a product at a level closer to tech lead scope - I've already built reusable abstractions (the TCI Factory pattern, the Expense Control Platform's domain package) that other engineers built on top of; I want more of that scope and more formal ownership of it.
 
 ### "What's your biggest weakness?"
-> [PREPARE YOUR ANSWER - genuine weakness with concrete mitigation strategy]
+> I want decisions grounded in verified signal, which means I can be slower than a teammate who's comfortable deciding on a hunch. Mitigation: I break work into sequential, self-contained steps and get each one reviewed before moving to the next, so the extra verification doesn't turn into an overall delivery delay. I'm also more energized by fast, decisive environments than ones that require many rounds of stakeholder sign-off on the same decision - I manage that by front-loading context into proposals so they need fewer review cycles.
 
 ### "Why this company specifically?"
 > Customize per company. Must reference: specific projects, company values, market position, or team structure. Never give a generic answer.

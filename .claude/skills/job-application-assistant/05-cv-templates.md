@@ -116,11 +116,11 @@ When the role sits outside your home domain, **lead with the domain-transfer arg
 **Create 2-3 profile statement templates for your main role types:**
 
 <!-- SETUP: These are populated based on your background -->
-**For [YOUR_PRIMARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_1]
+**For Full Stack Developer roles:**
+> Full Stack Developer with three years of production experience across React, Next.js, TypeScript, Node.js, GraphQL, and PostgreSQL. Have shipped features end to end - domain, API, database, and interface - for a pharmacy management ecosystem in Spain, an air-cargo export logistics platform, and a cold-chain logistics platform, applying hexagonal architecture and domain events throughout. Comfortable owning a technical scope solo (480+ commits on a personal full-stack project built with Claude Code) and equally effective embedded in a focused delivery team.
 
-**For [YOUR_SECONDARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_2]
+**For Backend-leaning / API & architecture roles:**
+> Full Stack Developer with growing specialization in backend and API design: GraphQL services built with Apollo Server and GraphQL Yoga, PostgreSQL data modeling with Prisma and Drizzle ORM, and hexagonal architecture/DDD with domain events. Designed a Factory-pattern integration abstraction for external warehouse systems and a multi-tenant data-isolation layer in production. Built a personal domain package from scratch (480+ commits, aggregate roots, a custom criteria pattern) as deliberate practice toward deeper backend ownership.
 
 Statements labeled *[Used for: <company>_<role>]* were extracted from archived application drafts by `/setup` Path A. They are **phrasing references, never fact sources**: when drafting from one, every factual claim still comes from `01-candidate-profile.md` - a past tailored draft does not vouch for its own accuracy.
 

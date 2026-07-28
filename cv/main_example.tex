@@ -1,8 +1,7 @@
-%% Example CV - [YOUR_NAME]
+%% Example CV - Freddy Tacuri
 %% Comprehensive overview of all competencies, experience, and achievements.
 %% Use as a master reference when tailoring role-specific CVs.
 %%
-%% SETUP: Run /setup to populate this with your actual information.
 %% Compile with: lualatex main_example.tex
 %% (pdflatex often fails on modern MiKTeX with fontawesome5 font-expansion errors.)
 
@@ -24,18 +23,18 @@
     linkcolor=blue,
     filecolor=magenta,
     urlcolor=blue,
-    pdftitle={[YOUR_NAME] - CV},
+    pdftitle={Freddy Tacuri - CV},
     pdfpagemode=FullScreen,
 }
 \usepackage[scale=0.80]{geometry}
 \usepackage{import}
 
 % personal data
-\name{[First]}{[Last]}
-\address{[Your Address, City, Country]}{}{}
-\phone[mobile]{[+XX XXXXXXXXXX]}
-\email{[your.email@example.com]}
-\extrainfo{\href{[https://linkedin.com/in/your-profile]}{LinkedIn}, \href{[https://github.com/your-username]}{GitHub}}
+\name{Freddy}{Tacuri}
+\address{Quito, Ecuador}{}{}
+\phone[mobile]{+593 99 578 1302}
+\email{freddyltacuri@gmail.com}
+\extrainfo{\href{https://www.linkedin.com/in/freddy-tacuri/}{LinkedIn}, \href{https://github.com/Freddyz5}{GitHub}}
 
 \begin{document}
 
@@ -46,7 +45,7 @@
 % ============================================================
 
 \vspace{6pt}
-\small{[Write a 3-5 line profile statement tailored to the role you're applying for. Focus on what makes you uniquely qualified. Example: "Data scientist with a PhD in [field] and X years of industry experience. Combines deep domain expertise in [domain] with strong applied machine learning and Python development skills. Experienced in developing end-to-end ML pipelines, from data ingestion to stakeholder-facing dashboards."]}
+\small{Full Stack Developer with three years of production experience across React, Next.js, TypeScript, Node.js, GraphQL, and PostgreSQL. Have shipped features end to end -- domain, API, database, and interface -- for a pharmacy management ecosystem in Spain, an air-cargo export logistics platform, and a cold-chain logistics platform, applying hexagonal architecture and domain events throughout. Comfortable owning a technical scope solo (480+ commits on a personal full-stack project built with Claude Code) and equally effective embedded in a focused delivery team.}
 
 % ============================================================
 %     CORE COMPETENCIES
@@ -56,15 +55,15 @@
 \vspace{1pt}
 \begin{itemize}
 
-\item \textbf{[Skill Category 1]}: [Specific skills, frameworks, tools. Be concrete.]
+\item \textbf{Frontend}: React, Next.js, TypeScript, Astro, Tailwind CSS, Material UI, Zustand, TanStack Query
 
-\item \textbf{[Skill Category 2]}: [Specific skills, frameworks, tools.]
+\item \textbf{Backend \& APIs}: Node.js, GraphQL (Apollo Server/Client, GraphQL Yoga), Hono, Express, REST APIs
 
-\item \textbf{[Skill Category 3]}: [Specific skills, frameworks, tools.]
+\item \textbf{Data}: PostgreSQL, Prisma, Drizzle ORM, Neon
 
-\item \textbf{[Skill Category 4]}: [Domain expertise, methods, approaches.]
+\item \textbf{Architecture}: Hexagonal architecture, domain-driven design, domain events, multi-tenancy, monorepos (Turborepo)
 
-\item \textbf{[Skill Category 5]}: [Tools, platforms, software.]
+\item \textbf{Mobile \& Testing}: React Native, Expo, Maestro E2E testing
 
 \end{itemize}
 
@@ -76,33 +75,31 @@
 \vspace{3pt}
 \begin{itemize}
 
-% --- Most Recent Role ---
-\item{\cventry{[YYYY--Present]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+% --- Init Grammers (four concurrent products) ---
+\item{\cventry{2023--Present}{Full Stack Developer}{Init Grammers (Software Consultancy)}{Remote / Quito, Ecuador}{}{\vspace{1pt}
+Joined as a junior developer in October 2023, promoted to semi-senior in April 2025. Rotated across four concurrent client products spanning frontend, backend, mobile, and infrastructure.
 \begin{itemize}
-    \item [Achievement or responsibility 1 - be specific, use numbers where possible]
-    \item [Achievement or responsibility 2]
-    \item [Achievement or responsibility 3]
-    \item [Achievement or responsibility 4]
+    \item \textbf{Media Value} (pharmacy management ecosystem, Spain): designed and built an auditable terms-and-conditions acceptance record end to end (domain, GraphQL API, DB migration, frontend hooks) under hexagonal architecture; consolidated two shift-closing cron jobs into one with edge-case test coverage; led the training platform's mobile-responsive rollout ahead of launch
+    \item \textbf{TCI} (air-cargo export logistics): designed a Factory-pattern abstraction to integrate a second external warehouse via SOAP without touching the first integration; built XLSM bulk guide import with per-row validation; implemented per-agency multi-tenant data isolation and domain-event-driven user provisioning
+    \item \textbf{MTC} (cold-chain logistics, web + mobile): built the documents module end to end (schema through PDF export); defined and led the rollout of barcode-gun batch scanning across seven operational flows; took over and completed Maestro E2E test automation for the mobile app after two developers left the project
+    \item \textbf{Marca Patito} (waste-collection subscription platform): implemented role-based access control and the subscription/payment activation flow; found and fixed a hardcoded database connection string, moving it to environment variables
 \end{itemize}}}
 
-\vspace{3pt}
+\end{itemize}
 
-% --- Previous Role ---
-\item{\cventry{[YYYY--YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+% ============================================================
+%     INDEPENDENT PROJECTS
+% ============================================================
+
+\section{Independent Projects}
+\vspace{1pt}
 \begin{itemize}
-    \item [Achievement or responsibility 1]
-    \item [Achievement or responsibility 2]
-    \item [Achievement or responsibility 3]
-\end{itemize}}}
 
-\vspace{3pt}
+\item \textbf{Expense Control Platform} (2025--Present, solo, 480+ commits): full stack expense-tracking platform (Next.js web, Expo mobile, GraphQL Yoga API). Took over the entire backend from a departed collaborator and rewrote it in TypeScript on hexagonal architecture/DDD -- aggregate roots, domain events, a custom Criteria pattern. Deployed with CI/CD on GitHub Actions and Vercel.
 
-% --- Earlier Role ---
-\item{\cventry{[YYYY--YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
-\begin{itemize}
-    \item [Achievement or responsibility 1]
-    \item [Achievement or responsibility 2]
-\end{itemize}}}
+\item \textbf{Vision Craft}: Astro/React vision-board editor with a print engine that converts to real physical scale and tiles large boards across multiple sheets. Multi-provider image search (Unsplash, Pexels) via a server-side API proxy.
+
+\item \textbf{Jard\'in Zen}: React Native/Expo ambient-sounds app with a looping audio player, waveform scrubbing, background sleep timer, and native Android/iOS builds via EAS.
 
 \end{itemize}
 
@@ -114,15 +111,11 @@
 \vspace{1pt}
 \begin{itemize}
 
-\item{\cventry{[YYYY--YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-Thesis: ``[Thesis Title].'' [Brief description of research focus.]
-}}
+\item{\cventry{2010--2016}{Electronics Engineering}{Universidad Polit\'ecnica Salesiana}{Quito, Ecuador}{}{}}
 
 \vspace{3pt}
 
-\item{\cventry{[YYYY--YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-[Brief description or key topics.]
-}}
+\item{\cventry{2008--2010}{Technical High School Diploma, Electronics}{Colegio T\'ecnico Guillermo Mensi}{Quito, Ecuador}{}{}}
 
 \end{itemize}
 
@@ -133,27 +126,19 @@ Thesis: ``[Thesis Title].'' [Brief description of research focus.]
 \section{Languages}
 \vspace{1pt}
 \begin{itemize}
-\item [Language 1] (native), [Language 2] (fluent), [Language 3] (intermediate).
+\item Spanish (native), English (B1 -- Intermediate).
 \end{itemize}
 
 % ============================================================
-%     PUBLICATIONS (optional)
+%     CERTIFICATIONS (optional)
 % ============================================================
 
-\section{Publications}
+\section{Certifications}
 \vspace{1pt}
 \begin{itemize}
-\item [Author(s)] ([Year]). [Title]. [Journal/Conference]. \href{[DOI_URL]}{DOI link}
-\end{itemize}
-
-% ============================================================
-%     HONORS AND AWARDS (optional)
-% ============================================================
-
-\section{Honors and Awards}
-\vspace{1pt}
-\begin{itemize}
-\item{\textbf{[Award Name]} -- [Event/Organization] ([Year]).}
+\item JavaScript Algorithms and Data Structures -- freeCodeCamp (2023)
+\item Responsive Web Design -- freeCodeCamp (2023)
+\item Web Development Certification -- Udemy (2023)
 \end{itemize}
 
 % ============================================================

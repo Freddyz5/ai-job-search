@@ -44,9 +44,9 @@ How well do the required/preferred skills align with the candidate's capabilitie
 | 40-59 | Partial match, significant upskilling needed |
 | 0-39 | Fundamental mismatch |
 
-**Strong match areas:** [YOUR_PRIMARY_SKILLS]
-**Moderate match areas:** [YOUR_SECONDARY_SKILLS]
-**Weak match areas:** [SKILLS_YOU_LACK]
+**Strong match areas:** TypeScript/JavaScript, React, Next.js, Node.js, GraphQL (Apollo Server/Client, GraphQL Yoga), PostgreSQL, Prisma/Drizzle ORM, hexagonal architecture/DDD, full-stack feature ownership
+**Moderate match areas:** React Native/Expo (mobile), CI/CD (GitHub Actions), E2E testing (Maestro), monorepo tooling (Turborepo), multi-tenant systems
+**Weak match areas:** Formal people management/team leadership, large-scale distributed systems or high-traffic infra, languages beyond TS/JS (no Python/Go/Java production experience), English above B1
 
 ### 2. Experience Match (0-100)
 Does work history align with what they're looking for?
@@ -58,9 +58,9 @@ Does work history align with what they're looking for?
 | 40-59 | Adjacent experience, would need to make the case |
 | 0-39 | Unrelated experience |
 
-**Strong:** [YOUR_DIRECT_EXPERIENCE_DOMAINS]
-**Moderate:** [YOUR_ADJACENT_EXPERIENCE]
-**Entry-level:** [ROLES_WITH_LIMITED_EXPERIENCE]
+**Strong:** Full-stack product development (React/Next.js + Node.js/GraphQL + PostgreSQL), GraphQL API design, SaaS/B2B platform features, backend domain modeling under hexagonal architecture
+**Moderate:** Mobile app development (React Native/Expo), DevOps/CI-CD ownership, e2e test automation
+**Entry-level:** Engineering leadership/people management, roles requiring 5+ years' experience
 
 ### 3. Behavioral/Culture Fit (0-100)
 Does the role and company culture match the behavioral profile?
@@ -75,9 +75,10 @@ Does the role and company culture match the behavioral profile?
 **Red flags to research:** Department disorganization, work dominated by maintenance over development, poor chemistry with leadership, culture mismatches. Check reviews, media coverage, LinkedIn connections, and network contacts for insider perspective.
 
 ### 4. Location & Logistics (Pass/Fail + Notes)
-- Within commute range: PASS
-- Remote with occasional office: PASS
-- Requires relocation: FAIL (deal-breaker)
+- Remote (any country): PASS
+- Relocation offered/supported by employer: PASS
+- On-site with no relocation support, outside Quito: FAIL
+- Hybrid (any location): FAIL - not being pursued; considered too hard to sustain from Quito, even though not a hard values-based dealbreaker
 - Frequent international travel: FLAG (discuss with user)
 
 ### 5. Career Alignment & Motivation (0-100)
@@ -91,19 +92,19 @@ Does this role advance career goals and contain tasks that energize?
 | 0-39 | Dead end or backwards step |
 
 **Career goals:**
-- [YOUR_CAREER_GOAL_1]
-- [YOUR_CAREER_GOAL_2]
-- [YOUR_CAREER_GOAL_3]
+- Stay full-stack, but grow deeper into backend and architecture (API design, data modeling, hexagonal/DDD) - feels most secure on frontend today but is actively pursuing backend depth
+- Take on roles with genuine end-to-end ownership rather than narrow, tightly scoped tickets
+- Open to full-stack, backend-leaning, or even frontend roles (React/Next.js) if the rest of the role fits - scope is genuinely full-stack, so don't over-filter on title alone
 
 **Motivation filter:** Evaluate not just whether you *can* do the tasks, but whether the tasks will *energize* you. Consider:
-- Tasks that energize: [YOUR_ENERGIZING_TASKS]
-- Tasks that drain: [YOUR_DRAINING_TASKS]
-- Non-task factors: leadership style, department culture, company values, degree of autonomy
+- Tasks that energize: owning a feature end to end (domain through interface); backend/API/data-modeling problems; architecture and design work (hexagonal, DDD, extensibility patterns)
+- Tasks that drain: the same decision needing repeated re-review by many stakeholders before work can move forward
+- Non-task factors: small, senior/competent teams; light-touch management; low-noise, structured environments
 
 **Life situation alignment:** Consider personal constraints:
-- **Security**: [YOUR_FINANCIAL_SITUATION_CONTEXT]
-- **Flexibility**: [YOUR_SCHEDULE_CONSTRAINTS]
-- **Professional development**: [YOUR_GROWTH_PRIORITIES]
+- **Security**: targeting a baseline around $2,500/month (remote-global); no urgent financial pressure driving the search
+- **Flexibility**: remote-only or willing to relocate; not pursuing hybrid roles from Quito
+- **Professional development**: primary growth priority is deepening backend/architecture skills while keeping full-stack range
 
 ### 6. Salary Benchmark (Optional)
 

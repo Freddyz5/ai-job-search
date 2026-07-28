@@ -1,10 +1,10 @@
-# Job Application Assistant for [YOUR_NAME]
+# Job Application Assistant for Freddy Tacuri
 
 <!-- SETUP: This file is populated by running /setup -->
 <!-- After running /setup, all [PLACEHOLDER] tokens will be replaced with your actual information -->
 
 ## Role
-This repo is a job application workspace. Claude acts as a career advisor and application assistant for [YOUR_NAME], helping with:
+This repo is a job application workspace. Claude acts as a career advisor and application assistant for Freddy Tacuri, helping with:
 1. **Job fit evaluation** - Assess job postings against your profile (skills, experience, behavioral traits)
 2. **CV tailoring** - Adapt existing CV templates (LaTeX/moderncv) to target specific roles
 3. **Cover letter writing** - Draft targeted cover letters using existing templates (LaTeX)
@@ -16,67 +16,69 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 <!-- This section is auto-populated by /setup. You can also fill it in manually. -->
 
 ### Identity
-- **Name:** [YOUR_NAME]
-- **Location:** [YOUR_CITY], [YOUR_COUNTRY] ([YOUR_COMMUTE_CONSTRAINTS])
-- **Languages:** [YOUR_LANGUAGES]
-- **CV language:** [YOUR_CV_LANGUAGE] <!-- English unless your market expects otherwise; /setup asks -->
+- **Name:** Freddy Tacuri
+- **Location:** Quito, Ecuador (open to remote-only roles worldwide and to relocation; not pursuing hybrid roles - considered too hard to sustain from Quito)
+- **Languages:** Spanish (native), English (B1 - Intermediate)
+- **CV language:** English <!-- English unless your market expects otherwise; /setup asks -->
 
-- **Status:** [YOUR_EMPLOYMENT_STATUS]
-- **LinkedIn headline:** "[YOUR_LINKEDIN_HEADLINE]"
+- **Status:** Employed - Full Stack Developer at Init Grammers (semi-senior since April 2025), open to new opportunities
+- **LinkedIn headline:** "Full Stack Developer"
 
 ### Education
 <!-- List your degrees, most recent first -->
-- **[DEGREE_LEVEL] in [FIELD]** ([YEAR_START]-[YEAR_END]) - [INSTITUTION]
-  - Thesis: "[THESIS_TITLE]"
-  - Topics: [KEY_TOPICS]
+- **Engineering degree in Electronics Engineering** (2010-2016) - Universidad Politécnica Salesiana
+- **Technical High School Diploma in Electronics** (2008-2010) - Colegio Técnico Guillermo Mensi
 
 ### Professional Experience
 <!-- List your roles, most recent first -->
-- **[JOB_TITLE]** ([START_DATE] - [END_DATE]) - **[COMPANY]** ([LOCATION])
-  - [KEY_RESPONSIBILITY_1]
-  - [KEY_RESPONSIBILITY_2]
-  - [KEY_ACHIEVEMENT]
+- **Full Stack Developer** (Oct 2023 - Present) - **Init Grammers** (software consultancy, remote/Quito, Ecuador)
+  - Joined as a junior developer, promoted to semi-senior in April 2025; rotated across four concurrent client products spanning frontend, backend, mobile, and infrastructure
+  - **Media Value** (pharmacy management ecosystem, Spain - Oct 2023-Feb 2026): built end-to-end features under hexagonal architecture, including an auditable terms-and-conditions acceptance record (domain, API, DB migration, frontend hooks) and end-to-end timezone support; consolidated two shift-closing cron jobs into one with edge-case test coverage; led the training platform's mobile-responsive rollout ahead of launch
+  - **TCI** (air-cargo export logistics platform - Dec 2024-Dec 2025): designed a Factory-pattern abstraction with per-provider repositories to integrate a second external warehouse via SOAP without touching the first integration; built XLSM bulk guide import with per-row validation; implemented per-agency multi-tenant data isolation and domain-event-driven user provisioning
+  - **MTC** (cold-chain logistics platform, web + mobile - Aug 2024-present): built the documents module end to end (Prisma schema through PDF export); defined and is rolling out barcode-gun batch scanning across seven operational flows; took over and completed Maestro E2E test automation for the mobile app after two developers left the project
+  - **Marca Patito** (waste-collection subscription platform - Dec 2024-Mar 2025): implemented role-based access control and the subscription/payment activation flow; found and fixed a hardcoded database connection string, moving it to environment variables
 
 ### Technical Skills
-- **Primary:** [YOUR_PRIMARY_SKILLS]
-- **Secondary:** [YOUR_SECONDARY_SKILLS]
-- **Domain:** [YOUR_DOMAIN_EXPERTISE]
-- **Software:** [YOUR_TOOLS_AND_SOFTWARE]
+- **Primary:** TypeScript, JavaScript, React, Next.js, Node.js, GraphQL, PostgreSQL
+- **Secondary:** Astro, React Native/Expo, Prisma, Drizzle ORM, Apollo Server/Client, GraphQL Yoga, Hono, Express, Tailwind CSS, Material UI, Zustand, Redux Toolkit, TanStack Query, SWR
+- **Domain:** Hexagonal architecture, domain-driven design, domain events, monorepos (Turborepo), multi-tenancy, criteria-based search/filtering patterns
+- **Software:** Git, GitHub, GitHub Actions, Vercel, Maestro (E2E testing), Agile/Scrum
 
 ### Certifications
 <!-- List relevant certifications with dates -->
-- **[CERTIFICATION_NAME]** - [HOURS]h - completed [DATE]
+- **JavaScript Algorithms and Data Structures** - freeCodeCamp - completed 2023-08-27
+- **Responsive Web Design** - freeCodeCamp - completed 2023-08-12
+- **Web Development Certification** - Udemy - completed 2023-01-12
 
 ### Publications
 <!-- List peer-reviewed publications, if any -->
-- [AUTHOR_LIST] ([YEAR]). [TITLE]. [JOURNAL].
+None.
 
 ### Awards
 <!-- List relevant awards, hackathons, competitions -->
-- [AWARD_NAME] - [EVENT] ([YEAR])
+None yet.
 
 ### Behavioral Profile
 <!-- Your behavioral assessment results (PI, DISC, Myers-Briggs, or self-assessment) -->
-- **[TRAIT_1]** - [DESCRIPTION]
-- **[TRAIT_2]** - [DESCRIPTION]
-- **Strengths:** [YOUR_STRENGTHS]
-- **Growth areas:** [YOUR_GROWTH_AREAS]
-- **Thrives in:** [YOUR_IDEAL_ENVIRONMENT]
+- **Autonomous end-to-end owner** - comfortable owning a full technical scope solo (480+ commits on a personal full-stack project) and equally effective embedded in a focused delivery team with clear ownership boundaries
+- **Fast, evidence-gated decision-maker** - moves quickly, but wants decisions grounded in verified signal rather than speed for its own sake; changes course quickly and without friction once new information shows the plan needs to shift
+- **Strengths:** direct, practical communication (concrete checklists and next steps over long comparative discussion); sequential, self-contained execution, each step reviewed before the next begins
+- **Growth areas:** navigating environments that require broad multi-stakeholder sign-off before work can proceed
+- **Thrives in:** small, senior/competent teams with clear ownership boundaries; low-noise, structured environments that move from planning to execution without many hand-offs
 
 ### What Excites You
 <!-- What motivates you professionally -->
-- [PASSION_1]
-- [PASSION_2]
+- Owning a technical scope end to end - domain, API, database, and interface
+- Backend and architecture work: API design, data modeling, hexagonal architecture/DDD
 
 ### Target Sectors
 <!-- Industries and companies you're targeting -->
-- [SECTOR_1]: [EXAMPLE_COMPANIES]
-- [SECTOR_2]: [EXAMPLE_COMPANIES]
+- Software product / SaaS companies (remote-first): open discovery, no specific target list yet
 
 ### Deal-breakers
 <!-- Hard constraints on job search -->
-- [DEALBREAKER_1]
-- [DEALBREAKER_2]
+- On-site or hybrid roles without relocation support (not pursuing hybrid from Quito)
+- Roles requiring repeated multi-stakeholder re-review of the same decision before work can move forward
 
 ## Repo Structure
 - `cv/` - LaTeX CV variants (moderncv template, banking style)
