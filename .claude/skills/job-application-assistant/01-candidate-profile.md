@@ -16,7 +16,7 @@ framework_version: 1.0.0
 - **GitHub:** https://github.com/Freddyz5
 - **Languages:** Spanish (native), English (B1 - Intermediate)
 - **Status:** Employed - Full Stack Developer at Init Grammers, open to new opportunities
-- **Constraints:** Remote-only or willing to relocate; not pursuing hybrid roles from Quito
+- **Constraints:** Remote-only or willing to relocate; open to hybrid only if the role is based in Ecuador (hybrid elsewhere would require relocating just to be hybrid, which isn't worth it)
 
 ## Education
 

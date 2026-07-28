@@ -17,7 +17,7 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 
 ### Identity
 - **Name:** Freddy Tacuri
-- **Location:** Quito, Ecuador (open to remote-only roles worldwide and to relocation; not pursuing hybrid roles - considered too hard to sustain from Quito)
+- **Location:** Quito, Ecuador (open to remote-only roles worldwide and to relocation; open to hybrid only if the role is based in Ecuador - hybrid elsewhere would require relocating just to be hybrid, which isn't worth it)
 - **Languages:** Spanish (native), English (B1 - Intermediate)
 - **CV language:** English <!-- English unless your market expects otherwise; /setup asks -->
 
@@ -77,7 +77,7 @@ None yet.
 
 ### Deal-breakers
 <!-- Hard constraints on job search -->
-- On-site or hybrid roles without relocation support (not pursuing hybrid from Quito)
+- On-site or hybrid roles outside Ecuador with no relocation support (hybrid is fine within Ecuador, since no relocation is needed to attend)
 - Roles requiring repeated multi-stakeholder re-review of the same decision before work can move forward
 
 ## Repo Structure

@@ -77,8 +77,9 @@ Does the role and company culture match the behavioral profile?
 ### 4. Location & Logistics (Pass/Fail + Notes)
 - Remote (any country): PASS
 - Relocation offered/supported by employer: PASS
+- Hybrid, based in Ecuador: PASS - no relocation needed to attend
+- Hybrid, based outside Ecuador with no relocation support: FAIL - would mean relocating just to be hybrid, which isn't worth it
 - On-site with no relocation support, outside Quito: FAIL
-- Hybrid (any location): FAIL - not being pursued; considered too hard to sustain from Quito, even though not a hard values-based dealbreaker
 - Frequent international travel: FLAG (discuss with user)
 
 ### 5. Career Alignment & Motivation (0-100)
@@ -103,7 +104,7 @@ Does this role advance career goals and contain tasks that energize?
 
 **Life situation alignment:** Consider personal constraints:
 - **Security**: targeting a baseline around $2,500/month (remote-global); no urgent financial pressure driving the search
-- **Flexibility**: remote-only or willing to relocate; not pursuing hybrid roles from Quito
+- **Flexibility**: remote-only or willing to relocate; open to hybrid only if the role is based in Ecuador
 - **Professional development**: primary growth priority is deepening backend/architecture skills while keeping full-stack range
 
 ### 6. Salary Benchmark (Optional)

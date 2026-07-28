@@ -69,7 +69,8 @@ site:arc.dev GraphQL developer remote
 Candidate is based in Quito, Ecuador but is **not** filtering by commute distance:
 - **Remote (any country)**: PASS - primary target
 - **Relocation supported by employer**: PASS
-- **Hybrid, any location**: not being pursued (see `04-job-evaluation.md` Location & Logistics gate)
+- **Hybrid, based in Ecuador**: PASS - no relocation needed to attend
+- **Hybrid, based outside Ecuador with no relocation support**: FAIL (see `04-job-evaluation.md` Location & Logistics gate)
 - **On-site with no relocation support, outside Quito**: FAIL
 
 ## Date Filter
