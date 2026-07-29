@@ -20,6 +20,13 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 - **Location:** Quito, Ecuador (open to remote-only roles worldwide and to relocation; open to hybrid only if the role is based in Ecuador - hybrid elsewhere would require relocating just to be hybrid, which isn't worth it)
 - **Languages:** Spanish (native), English (B1 - Intermediate)
 - **CV language:** English <!-- English unless your market expects otherwise; /setup asks -->
+- **Conversation language: Spanish.** Every conversational message to Freddy — questions,
+  confirmations, status updates, summaries, evaluation results — is in Spanish, regardless of
+  the CV language above or the posting's own language. This is independent of both: the CV
+  language is fixed (English) and the cover letter language matches each posting, but the
+  *conversation about them* is always Spanish. Extracted posting content (quoted eligibility
+  wording, job titles) stays in its original language when quoted verbatim - only translate it
+  if Freddy asks.
 
 - **Status:** Employed - Full Stack Developer at Init Grammers (semi-senior since April 2025), open to new opportunities
 - **LinkedIn headline:** "Full Stack Developer"

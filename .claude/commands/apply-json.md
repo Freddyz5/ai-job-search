@@ -209,8 +209,8 @@ they actually submitted. **No file upload happens here** — Freddy attaches the
 1. In the **📋 Job Tracker** (`collection://28a47e44-eb30-48ad-a544-a8d8600b7cd1`), find the page
    whose `Link oferta` matches this posting's URL (fall back to `Empresa / Rol` text match if the
    posting has no clean URL).
-2. If no matching page exists, do not create one — tell the user, this application didn't come
-   from a `/scrape` lead and should be added to the tracker by hand first.
+2. If no matching page exists, do not create one — tell the user to run `/add-job <url>` first,
+   this application didn't come from a `/scrape` lead or a prior `/add-job` run.
 3. **Classify the role type** for this posting, from Step 0's keyword list: `Frontend` if it's
    UI-framework-heavy with no real backend surface (React/Next.js/Vue/Angular/CSS, no
    API/DB/server keywords), `Backend` if it's server/API/data-heavy with no real UI surface, and
