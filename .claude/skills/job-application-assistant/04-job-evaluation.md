@@ -80,7 +80,15 @@ Does the role and company culture match the behavioral profile?
 - Hybrid, based in Ecuador: PASS - no relocation needed to attend
 - Hybrid, based outside Ecuador with no relocation support: FAIL - would mean relocating just to be hybrid, which isn't worth it
 - On-site with no relocation support, outside Quito: FAIL
+- Remote but the posting explicitly excludes Ecuador or restricts eligible countries to a list that omits it (common on Arc.dev, since placements often route through country-specific EOR partners chosen per listing, not platform-wide): FAIL - check the actual posting page for this, the title/summary never mentions it
+- Remote but requires residency in a specific country (e.g. "100% remote, but candidates must reside in Chile"): FAIL - same failure mode as an explicit country exclusion, just phrased as a residency requirement
 - Frequent international travel: FLAG (discuss with user)
+
+**Always verify against the actual posting page, not just the title/summary.** Country
+exclusions and residency requirements are routinely buried in the body text and don't show up
+in a job title or a search snippet - confirmed cases have appeared on both Arc.dev ("Not open
+to candidates in Ecuador") and GetOnBrd ("Position is 100% remote, but candidates must reside
+in Chile"). A posting scored on title alone is not evaluated - it's assumed.
 
 ### 5. Career Alignment & Motivation (0-100)
 Does this role advance career goals and contain tasks that energize?
