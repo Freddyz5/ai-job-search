@@ -18,7 +18,7 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 ### Identity
 - **Name:** Freddy Tacuri
 - **Location:** Quito, Ecuador (open to remote-only roles worldwide and to relocation; open to hybrid only if the role is based in Ecuador - hybrid elsewhere would require relocating just to be hybrid, which isn't worth it)
-- **Languages:** Spanish (native), English (B1 - Intermediate)
+- **Languages:** Spanish (native), English (B1 - Intermediate, actively improving)
 - **CV language:** English <!-- English unless your market expects otherwise; /setup asks -->
 - **Conversation language: Spanish.** Every conversational message to Freddy — questions,
   confirmations, status updates, summaries, evaluation results — is in Spanish, regardless of
