@@ -82,6 +82,7 @@ Does the role and company culture match the behavioral profile?
 - On-site with no relocation support, outside Quito: FAIL
 - Remote but the posting explicitly excludes Ecuador or restricts eligible countries to a list that omits it (common on Arc.dev, since placements often route through country-specific EOR partners chosen per listing, not platform-wide): FAIL - check the actual posting page for this, the title/summary never mentions it
 - Remote but requires residency in a specific country (e.g. "100% remote, but candidates must reside in Chile"): FAIL - same failure mode as an explicit country exclusion, just phrased as a residency requirement
+- Remote but requires fixed core hours in a timezone that would put Ecuador (UTC-5) working hours overnight (e.g. "must work core hours 9-5 CET/GMT/CEST"): FAIL - do the math on the actual clock time in Ecuador, don't approximate. A loose "some overlap with European hours expected" with no fixed hours is a FLAG, not a FAIL - it's workable, just worth surfacing.
 - Frequent international travel: FLAG (discuss with user)
 
 **Always verify against the actual posting page, not just the title/summary.** Country
