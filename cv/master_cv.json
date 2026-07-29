@@ -1,0 +1,1274 @@
+{
+  "meta": {
+    "variant": "master",
+    "version": "2.7.0",
+    "lastModified": "2026-07-15",
+    "canonical": true,
+    "tagVocabulary": [
+      "frontend",
+      "backend",
+      "fullstack",
+      "mobile",
+      "architecture",
+      "infra",
+      "testing",
+      "product",
+      "collaboration"
+    ],
+    "stackSemantics": "stack = tecnologias que el candidato toco directamente, NO el stack completo del proyecto."
+  },
+  "basics": {
+    "id": "basics-main",
+    "name": "Freddy Tacuri",
+    "label": {
+      "es": "Desarrollador Full Stack",
+      "en": "Full Stack Developer"
+    },
+    "image": {
+      "url1": "/portafolio/freddytacuri.png",
+      "url2": "/portafolio/freddytacuripixel.png",
+      "alt": "Foto de Freddy Tacuri"
+    },
+    "email": "freddyltacuri@gmail.com",
+    "phone": "+593 99 578 1302",
+    "url": "https://freddyz5.github.io/portafolio/es/",
+    "summary": {
+      "es": "Desarrollador Full Stack con 3 años de experiencia en producto, formado de manera autodidacta y promovido a semi senior en 2025. Especializado en React, Next.js y TypeScript, con trabajo reciente en APIs GraphQL, arquitectura hexagonal y PostgreSQL. He construido funcionalidades de extremo a extremo —dominio, API, base de datos e interfaz— para plataformas en producción usadas por farmacias en España y para operaciones de logística internacional.",
+      "en": "Full Stack Developer with 3 years of product experience, self-taught and promoted to semi-senior in 2025. Specialized in React, Next.js, and TypeScript, with recent work on GraphQL APIs, hexagonal architecture, and PostgreSQL. I have shipped features end to end —domain, API, database, and interface— for production platforms used by pharmacies in Spain and for international logistics operations."
+    },
+    "location": {
+      "city": "Quito",
+      "country": "Ecuador",
+      "timezone": "America/Guayaquil",
+      "utcOffset": "UTC-5"
+    },
+    "socialProfiles": [
+      {
+        "network": "LinkedIn",
+        "username": "freddy-tacuri",
+        "url": "https://www.linkedin.com/in/freddy-tacuri/"
+      },
+      {
+        "network": "GitHub",
+        "username": "Freddyz5",
+        "url": "https://github.com/Freddyz5"
+      },
+      {
+        "network": "Instagram",
+        "username": "freddy_tacuri_",
+        "url": "https://www.instagram.com/freddy_tacuri_/"
+      }
+    ]
+  },
+  "works": [
+    {
+      "id": "work-initGrammers",
+      "name": {
+        "es": "Init Grammers - Consultora de Software",
+        "en": "Init Grammers - Software Consultancy"
+      },
+      "position": {
+        "es": "Desarrollador Full Stack",
+        "en": "Full Stack Developer"
+      },
+      "url": "https://www.initgrammers.com",
+      "startDate": "2023-10-02",
+      "endDate": null,
+      "summary": {
+        "es": "Consultora de software que desarrolla productos para clientes internacionales. Ingresé como desarrollador junior en octubre de 2023 y desde abril de 2025 ejerzo como semi senior. He rotado por cuatro equipos y productos, cubriendo frontend, backend, mobile e infraestructura.",
+        "en": "Software consultancy building products for international clients. I joined as a junior developer in October 2023 and have held a semi-senior role since April 2025. I have rotated across four teams and products, covering frontend, backend, mobile, and infrastructure."
+      },
+      "highlights": [],
+      "teams": [
+        {
+          "teamId": "team-mediaValue",
+          "teamName": "Media Value",
+          "role": {
+            "es": "Desarrollador Frontend ➜ Full Stack",
+            "en": "Frontend ➜ Full Stack Developer"
+          },
+          "startDate": "2023-10",
+          "endDate": "2026-02",
+          "stack": [
+            "React",
+            "Next.js",
+            "TypeScript",
+            "GraphQL",
+            "Apollo Server",
+            "Node.js",
+            "PostgreSQL",
+            "Prisma",
+            "Tailwind CSS",
+            "Material UI",
+            "Zustand",
+            "React Query",
+            "Bun"
+          ],
+          "summary": {
+            "es": "Ecosistema de tres productos para la gestión integral de decenas de farmacias en España: una intranet corporativa (tareas, comunicación interna, turnos y campañas), una plataforma de formación en video con evaluaciones, y una API GraphQL. Es el proyecto que acompaña gran parte mi trayectoria en la empresa: entré como frontend en 2023 y regresé en 2025 con responsabilidades full stack sobre dominio, API e infraestructura.",
+            "en": "An ecosystem of three products for the end-to-end management of dozens of pharmacies in Spain: a corporate intranet (tasks, internal communication, shifts, and campaigns), a video training platform with assessments, and a GraphQL API. It is the project that spans a large part tenure at the company: I joined as a frontend developer in 2023 and returned in 2025 with full stack responsibilities over domain, API, and infrastructure."
+          },
+          "highlights": [
+            {
+              "id": "hl-mv-consents",
+              "priority": 1,
+              "tags": [
+                "backend",
+                "fullstack",
+                "architecture"
+              ],
+              "text": {
+                "es": "Diseñé —con aprobación de mi senior— e implementé de extremo a extremo el registro de aceptación de términos y condiciones para usuarios ya registrados: entidad de dominio, servicios de aplicación con búsqueda por criterios, API GraphQL, migración de base de datos y hooks del frontend, siguiendo arquitectura hexagonal. Dejó un registro auditable de cada aceptación.",
+                "en": "Designed —with senior approval— and implemented end to end the terms-and-conditions acceptance record for already-registered users: domain entity, application services with criteria-based search, GraphQL API, database migration, and frontend hooks, following hexagonal architecture. It produced an auditable record of every acceptance."
+              }
+            },
+            {
+              "id": "hl-mv-shifts-cron",
+              "priority": 2,
+              "tags": [
+                "backend",
+                "architecture",
+                "testing",
+                "collaboration"
+              ],
+              "text": {
+                "es": "Apoyé la entrega del cierre automático de turnos en un momento de alta carga del equipo, consolidando dos cron jobs en uno solo con manejo de cruce de fronteras horarias, deduplicación de notificaciones y cierre con comentarios automáticos, respaldado con tests de robustez y casos borde.",
+                "en": "Supported the delivery of automatic shift closing during a period of heavy team load, consolidating two cron jobs into a single one with time-boundary crossing handling, notification deduplication, and closure with automatic comments, backed by robustness and edge-case tests."
+              }
+            },
+            {
+              "id": "hl-mv-lms-frontend",
+              "priority": 3,
+              "tags": [
+                "frontend"
+              ],
+              "text": {
+                "es": "Construí interfaces de la plataforma de formación: series y capítulos, carga de contenido con reordenamiento por arrastre, buscador, temáticas, favoritos, seguimiento de visualización y \"seguir viendo\", y la UI del sistema de notificaciones.",
+                "en": "Built interfaces for the training platform: series and episodes, content upload with drag-and-drop reordering, search, topics, favorites, view tracking and \"keep watching\", and the notification system UI."
+              }
+            },
+            {
+              "id": "hl-mv-timezone",
+              "priority": 4,
+              "tags": [
+                "backend",
+                "fullstack"
+              ],
+              "text": {
+                "es": "Implementé soporte de zona horaria de punta a punta —entidad de dominio, migración de base de datos y formulario de perfil— para operar correctamente sobre las farmacias españolas.",
+                "en": "Implemented time zone support end to end —domain entity, database migration, and profile form— to operate correctly across Spanish pharmacies."
+              }
+            },
+            {
+              "id": "hl-mv-responsive",
+              "priority": 5,
+              "tags": [
+                "frontend"
+              ],
+              "text": {
+                "es": "Adapté la plataforma de formación a móvil antes de su salida a producción, tomando la iniciativa sobre el trabajo responsive, y llevé la misma adaptación a la intranet.",
+                "en": "Adapted the training platform to mobile ahead of its production launch, taking the initiative on the responsive work, and carried the same adaptation over to the intranet."
+              }
+            }
+          ]
+        },
+        {
+          "teamId": "team-TCI",
+          "teamName": "TCI",
+          "role": {
+            "es": "Desarrollador Full Stack",
+            "en": "Full Stack Developer"
+          },
+          "startDate": "2024-12",
+          "endDate": "2025-12",
+          "stack": [
+            "TypeScript",
+            "JavaScript",
+            "React",
+            "Next.js",
+            "Material UI",
+            "Apollo Client",
+            "GraphQL",
+            "Node.js",
+            "Apollo Server",
+            "PostgreSQL",
+            "Prisma",
+            "Monorepo",
+            "Yarn",
+            "SOAP",
+            "date-fns"
+          ],
+          "summary": {
+            "es": "Plataforma de gestión de carga aérea de exportación para un operador logístico: registro de guías, briefing operativo, priorización, cierre y sincronización con bodegas externas. Monorepo con frontend web, API GraphQL y un paquete de dominio en arquitectura hexagonal con eventos de dominio. Trabajé de forma transversal entre frontend, API y capa de dominio.",
+            "en": "Export air cargo management platform for a logistics operator: guide registration, operational briefing, prioritization, closing, and synchronization with external warehouses. Monorepo with a web frontend, GraphQL API, and a domain package in hexagonal architecture with domain events. I worked cross-functionally across frontend, API, and domain layer."
+          },
+          "highlights": [
+            {
+              "id": "hl-tci-warehouse-factory",
+              "priority": 1,
+              "tags": [
+                "backend",
+                "architecture"
+              ],
+              "text": {
+                "es": "Terminé la primera integración de sincronización de guías con una bodega externa vía SOAP, resuelta de forma directa por ser la única. Cuando se solicitó integrar una segunda bodega, propuse e implementé una abstracción con patrón Factory, repositorios por proveedor y normalización en una clase base, de modo que cada bodega nueva se suma como un adaptador sin modificar la lógica existente.",
+                "en": "Completed the first guide-synchronization integration with an external warehouse over SOAP, solved directly since it was the only one. When a second warehouse had to be integrated, I proposed and implemented an abstraction using the Factory pattern, per-provider repositories, and normalization in a base class, so each new warehouse plugs in as an adapter without modifying existing logic."
+              }
+            },
+            {
+              "id": "hl-tci-bulk-import",
+              "priority": 2,
+              "tags": [
+                "frontend",
+                "product"
+              ],
+              "text": {
+                "es": "Desarrollé la carga de guías desde plantilla XLSM: generación de la plantilla con opciones derivadas de datos del sistema, procesamiento del archivo con validación por fila y mapeo automático a las entidades de consignatario, producto, guía aérea, aerolínea y vía, incluyendo el tratamiento de campos sin entidad en base de datos.",
+                "en": "Built guide loading from an XLSM template: template generation with options derived from system data, file processing with per-row validation, and automatic mapping to consignee, product, air waybill, airline, and route entities, including handling of fields without a database entity."
+              }
+            },
+            {
+              "id": "hl-tci-partial-guides",
+              "priority": 3,
+              "tags": [
+                "fullstack",
+                "backend"
+              ],
+              "text": {
+                "es": "Implementé el soporte de guías parciales y el módulo de recepción de carga de extremo a extremo: migración y vistas SQL, modelos de dominio, búsqueda por criterios, repositorio Prisma, resolvers GraphQL e interfaz.",
+                "en": "Implemented partial guides support and the cargo reception module end to end: migration and SQL views, domain models, criteria-based search, Prisma repository, GraphQL resolvers, and interface."
+              }
+            },
+            {
+              "id": "hl-tci-domain-events",
+              "priority": 4,
+              "tags": [
+                "backend",
+                "architecture"
+              ],
+              "text": {
+                "es": "Automaticé el aprovisionamiento de usuarios mediante eventos de dominio: creación del usuario cliente por defecto al dar de alta una agencia, baja automática al eliminarla, migración para las agencias ya existentes y generación masiva de contraseñas con validación y autorización.",
+                "en": "Automated user provisioning through domain events: default client user creation when an agency is registered, automatic removal when it is deleted, a migration for pre-existing agencies, and bulk password generation with validation and authorization."
+              }
+            },
+            {
+              "id": "hl-tci-multitenancy",
+              "priority": 5,
+              "tags": [
+                "backend"
+              ],
+              "text": {
+                "es": "Implementé el aislamiento de datos por agencia sobre un diseño definido por el equipo: usuario resuelto en el middleware de autenticación y propagado por contexto, con filtro automático por entidad en el repositorio Prisma. Extendí la solución recibida propagando el filtro a las búsquedas y conteos por criterios, cubriendo el caso sin token y añadiendo validación para omitir el filtro cuando no aplica.",
+                "en": "Implemented per-agency data isolation on top of a design defined by the team: user resolved in the authentication middleware and propagated through context, with automatic entity filtering in the Prisma repository. I extended the given solution by propagating the filter to criteria-based searches and counts, covering the no-token case, and adding validation to skip the filter when not applicable."
+              }
+            },
+            {
+              "id": "hl-tci-notifications",
+              "priority": 6,
+              "tags": [
+                "backend",
+                "product"
+              ],
+              "text": {
+                "es": "Desarrollé la notificación por correo ante cambios en itinerarios de vuelo, disparada por eventos de dominio y condicionada por configuración en base de datos y por agencias habilitadas.",
+                "en": "Developed email notifications for flight itinerary changes, triggered by domain events and gated by database configuration and allow-listed agencies."
+              }
+            },
+            {
+              "id": "hl-tci-frontend-ops",
+              "priority": 7,
+              "tags": [
+                "frontend"
+              ],
+              "text": {
+                "es": "Desarrollé los módulos operativos de briefing, registro, priorización y cierre sobre tablas de datos con filtros, búsqueda, ordenamiento y exportación a PDF y Excel, incluyendo visibilidad de módulos y acciones según rol y configuración.",
+                "en": "Built the briefing, registration, prioritization, and closing operational modules on top of data grids with filtering, search, sorting, and PDF/Excel export, including role- and configuration-based visibility of modules and actions."
+              }
+            }
+          ]
+        },
+        {
+          "teamId": "team-MTC",
+          "teamName": "MTC",
+          "role": {
+            "es": "Desarrollador Full Stack",
+            "en": "Full Stack Developer"
+          },
+          "startDate": "2024-08",
+          "endDate": null,
+          "stack": [
+            "TypeScript",
+            "React",
+            "Next.js",
+            "React Native",
+            "Material UI",
+            "Zustand",
+            "TanStack Query",
+            "Formik",
+            "Yup",
+            "Firebase",
+            "GraphQL",
+            "UUID",
+            "Day.js",
+            "Monorepo",
+            "Prisma",
+            "genql",
+            "Maestro"
+          ],
+          "summary": {
+            "es": "Plataforma para logística de cadena de frío: trazabilidad y control de procesos críticos sobre contenedores y monitores de temperatura — preacondicionamiento, acondicionamiento, servicio, limpieza, cuarentena, pruebas de derrame, devoluciones e inventario. Monorepo con aplicación web, app móvil, paquete de dominio en arquitectura hexagonal y API GraphQL. Trabajo de forma transversal sobre las cuatro capas.",
+            "en": "Cold-chain logistics platform: traceability and control of critical processes over temperature containers and monitors — preconditioning, conditioning, service, cleaning, quarantine, spill testing, returns, and inventory. Monorepo with a web application, mobile app, a domain package in hexagonal architecture, and a GraphQL API. I work cross-functionally across all four layers."
+          },
+          "highlights": [
+            {
+              "id": "hl-mtc-documents",
+              "priority": 1,
+              "tags": [
+                "fullstack",
+                "backend",
+                "architecture"
+              ],
+              "text": {
+                "es": "Construí el módulo de documentos de extremo a extremo: esquema Prisma, modelos de dominio e interfaz de repositorio, casos de uso, repositorio Prisma, esquema y consultas GraphQL, y la vista de detalle con previsualización y exportación a PDF. Incluye un flujo de reserva y consumo de documentos y generación automática según la configuración de cada organización.",
+                "en": "Built the documents module end to end: Prisma schema, domain models and repository interface, use cases, Prisma repository, GraphQL schema and queries, and the detail view with preview and PDF export. It includes a document reservation and consumption workflow and automatic generation based on each organization's configuration."
+              }
+            },
+            {
+              "id": "hl-mtc-batch-scanning",
+              "priority": 2,
+              "tags": [
+                "fullstack",
+                "mobile",
+                "product"
+              ],
+              "text": {
+                "es": "Estoy implementando el escaneo por lotes con pistola lectora para sustituir el escaneo ítem por ítem con la cámara del móvil. Definí el enfoque técnico y lo he llevado a los flujos de preacondicionamiento, acondicionamiento final, servicio, pruebas, limpieza, devoluciones e inventario: mutaciones de validación y registro por lote en el dominio y la API GraphQL, y modo por lotes en la app móvil y la web.",
+                "en": "I am implementing barcode-gun batch scanning to replace item-by-item scanning with the phone camera. I defined the technical approach and carried it across the preconditioning, final conditioning, service, testing, cleaning, returns, and inventory flows: batch validation and recording mutations in the domain and GraphQL API, plus batch mode in the mobile app and web."
+              }
+            },
+            {
+              "id": "hl-mtc-inventory-front",
+              "priority": 3,
+              "tags": [
+                "frontend",
+                "product"
+              ],
+              "text": {
+                "es": "Construí la interfaz de creación y modificación de inventario sobre los scripts existentes: carga de CSV con plantilla, archivos de ejemplo e instrucciones, y validación previa a la migración. Eliminó una dependencia operativa: hasta entonces cada carga exigía pedir a un desarrollador que ejecutara el endpoint manualmente.",
+                "en": "Built the inventory creation and modification interface on top of existing scripts: CSV upload with a template, example files and instructions, and pre-migration validation. It removed an operational dependency: until then, every load required asking a developer to run the endpoint manually."
+              }
+            },
+            {
+              "id": "hl-mtc-organizations",
+              "priority": 4,
+              "tags": [
+                "fullstack"
+              ],
+              "text": {
+                "es": "Implementé la administración de organizaciones de extremo a extremo: tabla en base de datos, consultas y CRUD en el dominio, servicios y hooks en la web, relación entre organizaciones y usuarios, y visibilidad restringida al superadministrador.",
+                "en": "Implemented organization administration end to end: database table, domain queries and CRUD, web services and hooks, the organization-to-user relationship, and visibility restricted to super admins."
+              }
+            },
+            {
+              "id": "hl-mtc-multi-monitor",
+              "priority": 5,
+              "tags": [
+                "fullstack"
+              ],
+              "text": {
+                "es": "Añadí soporte para múltiples monitores de temperatura por operación, propagándolo por el registro de servicio, la API GraphQL, el flujo de devoluciones, el historial y las exportaciones a Excel y PDF.",
+                "en": "Added support for multiple temperature monitors per operation, propagating it through service recording, the GraphQL API, the returns flow, history, and Excel and PDF exports."
+              }
+            },
+            {
+              "id": "hl-mtc-e2e",
+              "priority": 6,
+              "tags": [
+                "testing",
+                "mobile"
+              ],
+              "text": {
+                "es": "Asumí y completé la automatización de pruebas end-to-end de la app móvil con Maestro tras la salida de dos desarrolladores del proyecto: escribí los flujos de cuarentena, prueba de derrame, limpieza, devoluciones y acondicionamiento en variantes QR y manual, con scripts de preparación de datos, y estandaricé los flujos existentes.",
+                "en": "Took over and completed end-to-end test automation for the mobile app with Maestro after two developers left the project: I wrote the quarantine, spill test, cleaning, returns, and conditioning flows in both QR and manual variants, with data-preparation scripts, and standardized the existing flows."
+              }
+            },
+            {
+              "id": "hl-mtc-notifications",
+              "priority": 7,
+              "tags": [
+                "frontend",
+                "mobile"
+              ],
+              "text": {
+                "es": "Implementé la paginación y el scroll infinito de notificaciones en la aplicación web y en la app móvil.",
+                "en": "Implemented notification pagination and infinite scroll in both the web application and the mobile app."
+              }
+            }
+          ]
+        },
+        {
+          "teamId": "team-marcaPatito",
+          "teamName": "Marca Patito",
+          "role": {
+            "es": "Desarrollador Frontend",
+            "en": "Frontend Developer"
+          },
+          "startDate": "2024-12",
+          "endDate": "2025-03",
+          "stack": [
+            "TypeScript",
+            "React",
+            "Next.js",
+            "Tailwind CSS",
+            "TanStack Query",
+            "Formik",
+            "Yup",
+            "Node.js",
+            "Bun",
+            "Monorepo",
+            "Drizzle ORM",
+            "shadcn/ui",
+            "notistack"
+          ],
+          "summary": {
+            "es": "Plataforma de gestión de recolección de residuos con planes por suscripción para clientes individuales y establecimientos: registro de residuos, panel de administración, panel de gestor, tableros e informes. Monorepo con aplicación Next.js y un paquete de componentes compartidos. Trabajé principalmente en frontend, con aportes puntuales en la capa de datos y la API.",
+            "en": "Waste collection management platform with subscription plans for individual and business customers: waste registration, admin panel, manager panel, dashboards, and reports. Monorepo with a Next.js application and a shared component package. I worked mainly on the frontend, with targeted contributions to the data layer and API."
+          },
+          "highlights": [
+            {
+              "id": "hl-mp-rbac",
+              "priority": 1,
+              "tags": [
+                "frontend",
+                "product"
+              ],
+              "text": {
+                "es": "Implementé el control de acceso por roles (superadministrador, administrador, gestor, cliente individual y establecimiento), incluyendo visibilidad del menú y de acciones según rol y estado de suscripción. Centralicé la verificación de acceso, que hasta entonces estaba repetida página por página.",
+                "en": "Implemented role-based access control (super admin, admin, manager, individual client, and business), including menu and action visibility based on role and subscription status. I centralized the access check, which until then was duplicated page by page."
+              }
+            },
+            {
+              "id": "hl-mp-subscriptions",
+              "priority": 2,
+              "tags": [
+                "frontend",
+                "product",
+                "fullstack"
+              ],
+              "text": {
+                "es": "Desarrollé el flujo de contratación y activación de planes: pago mediante pasarela externa, carga del comprobante por parte del cliente, revisión y cambio de estado de la suscripción desde el panel de administración, y notificación por correo al activarla.",
+                "en": "Built the plan purchase and activation flow: payment through an external gateway, customer receipt upload, review and subscription state change from the admin panel, and email notification upon activation."
+              }
+            },
+            {
+              "id": "hl-mp-admin-panels",
+              "priority": 3,
+              "tags": [
+                "frontend"
+              ],
+              "text": {
+                "es": "Construí los paneles de administración de usuarios y de gestores: tablas con paginación, filtros dinámicos, búsqueda, edición, asignación de roles y modales de dirección y facturación.",
+                "en": "Built the user and manager administration panels: paginated tables, dynamic filters, search, editing, role assignment, and address and billing modals."
+              }
+            },
+            {
+              "id": "hl-mp-dashboards",
+              "priority": 4,
+              "tags": [
+                "frontend",
+                "product"
+              ],
+              "text": {
+                "es": "Desarrollé los tableros de cliente y superadministrador con visualización de datos por rango de fechas, y la generación y descarga de informes legales y de redes sociales.",
+                "en": "Developed the client and super admin dashboards with date-range data visualization, and the generation and download of legal and social media reports."
+              }
+            },
+            {
+              "id": "hl-mp-ui-package",
+              "priority": 5,
+              "tags": [
+                "frontend",
+                "architecture"
+              ],
+              "text": {
+                "es": "Contribuí al paquete de componentes compartidos del monorepo sobre shadcn/ui, reutilizado por toda la aplicación.",
+                "en": "Contributed to the monorepo's shared component package built on shadcn/ui, reused across the entire application."
+              }
+            },
+            {
+              "id": "hl-mp-data-layer",
+              "priority": 6,
+              "tags": [
+                "backend"
+              ],
+              "text": {
+                "es": "Integré Drizzle ORM y la capa de acceso a datos del proyecto, y aporté endpoints y ajustes de esquema para suscripciones, pagos, planes y direcciones. Detecté y corregí una cadena de conexión a la base de datos escrita directamente en el código, moviéndola a variables de entorno.",
+                "en": "Integrated Drizzle ORM and the project's data access layer, and contributed endpoints and schema adjustments for subscriptions, payments, plans, and addresses. I found and fixed a database connection string hardcoded in the source, moving it to environment variables."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": "edu-ups",
+      "institution": "Universidad Politécnica Salesiana",
+      "area": {
+        "es": "Ingeniería Electrónica",
+        "en": "Electronics Engineering"
+      },
+      "startDate": "2010",
+      "endDate": "2016"
+    },
+    {
+      "id": "edu-mensi",
+      "institution": "Colegio Técnico Guillermo Mensi",
+      "area": {
+        "es": "Bachillerato Técnico en Electrónica de consumo",
+        "en": "Technical High School Diploma in Electronics"
+      },
+      "startDate": "2008",
+      "endDate": "2010"
+    }
+  ],
+  "certificates": [
+    {
+      "id": "cert-freecodecamp-js",
+      "name": "JavaScript Algorithms and Data Structures",
+      "issuer": "freeCodeCamp",
+      "date": "2023-08-27",
+      "url": "https://www.freecodecamp.org/espanol/certification/freddyz5/javascript-algorithms-and-data-structures"
+    },
+    {
+      "id": "cert-freecodecamp-responsive",
+      "name": "Responsive Web Design",
+      "issuer": "freeCodeCamp",
+      "date": "2023-08-12",
+      "url": "https://www.freecodecamp.org/espanol/certification/freddyz5/responsive-web-design"
+    },
+    {
+      "id": "cert-udemy-2023",
+      "name": "Web Development Certification",
+      "issuer": "Udemy",
+      "date": "2023-01-12",
+      "url": "https://www.udemy.com/certificate/UC-81955090-fe86-42a0-a661-e580c5062f52/"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill-languages",
+      "name": {
+        "es": "Lenguajes de Programación",
+        "en": "Programming Languages"
+      },
+      "tags": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "keywords": [
+        "TypeScript",
+        "JavaScript"
+      ]
+    },
+    {
+      "id": "skill-frontend",
+      "name": {
+        "es": "Desarrollo Frontend",
+        "en": "Frontend Development"
+      },
+      "tags": [
+        "frontend"
+      ],
+      "keywords": [
+        "React",
+        "Next.js",
+        "Astro",
+        "Tailwind CSS",
+        "Material UI",
+        "Zustand",
+        "Redux Toolkit",
+        "TanStack Query",
+        "SWR",
+        "HTML",
+        "CSS"
+      ]
+    },
+    {
+      "id": "skill-backend",
+      "name": {
+        "es": "Desarrollo Backend",
+        "en": "Backend Development"
+      },
+      "tags": [
+        "backend"
+      ],
+      "keywords": [
+        "Node.js",
+        "GraphQL",
+        "Apollo Server",
+        "GraphQL Yoga",
+        "Hono",
+        "Express",
+        "REST APIs",
+        "Stripe"
+      ]
+    },
+    {
+      "id": "skill-databases",
+      "name": {
+        "es": "Bases de Datos y ORM",
+        "en": "Databases & ORM"
+      },
+      "tags": [
+        "backend"
+      ],
+      "keywords": [
+        "PostgreSQL",
+        "Prisma",
+        "Drizzle ORM",
+        "Neon"
+      ]
+    },
+    {
+      "id": "skill-architecture",
+      "name": {
+        "es": "Arquitectura y Prácticas",
+        "en": "Architecture & Practices"
+      },
+      "tags": [
+        "architecture"
+      ],
+      "keywords": [
+        "Hexagonal Architecture",
+        "Domain Events",
+        "Monorepos",
+        "Turborepo",
+        "Separation of Concerns",
+        "Reusable Components",
+        "Clean Code"
+      ]
+    },
+    {
+      "id": "skill-mobile",
+      "name": {
+        "es": "Desarrollo Mobile",
+        "en": "Mobile Development"
+      },
+      "tags": [
+        "mobile"
+      ],
+      "keywords": [
+        "React Native",
+        "Expo"
+      ]
+    },
+    {
+      "id": "skill-testing",
+      "name": {
+        "es": "Testing",
+        "en": "Testing"
+      },
+      "tags": [
+        "testing"
+      ],
+      "keywords": [
+        "Maestro",
+        "E2E Testing"
+      ]
+    },
+    {
+      "id": "skill-tools",
+      "name": {
+        "es": "Herramientas y Colaboración",
+        "en": "Tools & Collaboration"
+      },
+      "tags": [
+        "collaboration"
+      ],
+      "keywords": [
+        "Git",
+        "GitHub",
+        "Vercel",
+        "Agile / Scrum"
+      ]
+    }
+  ],
+  "techBays": {
+    "primary": {
+      "bay": "BAHÍA_01",
+      "label": {
+        "es": "NÚCLEO PRINCIPAL",
+        "en": "MAIN CORE"
+      },
+      "tag": {
+        "es": "PRIMARIA",
+        "en": "PRIMARY"
+      },
+      "note": {
+        "es": "Stack de trabajo diario · ~3 años en producción",
+        "en": "Daily working stack · ~3 years in production"
+      },
+      "items": [
+        "TypeScript",
+        "React",
+        "Next.js",
+        "Node.js",
+        "GraphQL",
+        "PostgreSQL"
+      ]
+    },
+    "secondary": [
+      {
+        "bay": "B_02",
+        "label": {
+          "es": "FRONTEND+",
+          "en": "FRONTEND+"
+        },
+        "items": [
+          "Astro",
+          "Tailwind CSS",
+          "Material UI",
+          "Zustand",
+          "Redux Toolkit",
+          "TanStack Query",
+          "SWR"
+        ]
+      },
+      {
+        "bay": "B_03",
+        "label": {
+          "es": "BACKEND+",
+          "en": "BACKEND+"
+        },
+        "items": [
+          "Apollo Server",
+          "GraphQL Yoga",
+          "Hono",
+          "Express",
+          "REST APIs",
+          "Stripe"
+        ]
+      },
+      {
+        "bay": "B_04",
+        "label": {
+          "es": "DATOS",
+          "en": "DATA"
+        },
+        "items": [
+          "Prisma",
+          "Drizzle ORM",
+          "Neon"
+        ]
+      },
+      {
+        "bay": "B_05",
+        "label": {
+          "es": "ARQUITECTURA",
+          "en": "ARCHITECTURE"
+        },
+        "items": [
+          {
+            "es": "Arq. Hexagonal",
+            "en": "Hexagonal Arch."
+          },
+          "Domain Events",
+          "Monorepos",
+          "Turborepo"
+        ]
+      },
+      {
+        "bay": "B_06",
+        "label": {
+          "es": "MOBILE",
+          "en": "MOBILE"
+        },
+        "items": [
+          "React Native",
+          "Expo"
+        ]
+      },
+      {
+        "bay": "B_07",
+        "label": {
+          "es": "TESTING",
+          "en": "TESTING"
+        },
+        "items": [
+          "Maestro",
+          "E2E Testing"
+        ]
+      },
+      {
+        "bay": "B_08",
+        "label": {
+          "es": "HERRAMIENTAS",
+          "en": "TOOLS"
+        },
+        "items": [
+          "Git",
+          "GitHub",
+          "Vercel",
+          "Agile / Scrum"
+        ]
+      }
+    ]
+  },
+  "languages": [
+    {
+      "id": "lang-es",
+      "language": {
+        "es": "Español",
+        "en": "Spanish"
+      },
+      "fluency": {
+        "es": "Nativo",
+        "en": "Native"
+      }
+    },
+    {
+      "id": "lang-en",
+      "language": {
+        "es": "Inglés",
+        "en": "English"
+      },
+      "fluency": {
+        "es": "B1 – Intermedio",
+        "en": "B1 – Intermediate"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "id": "proj-expense-control",
+      "featured": true,
+      "projectStatus": "active",
+      "name": {
+        "es": "Plataforma de Control de Gastos",
+        "en": "Expense Control Platform"
+      },
+      "startDate": "2025-04",
+      "endDate": null,
+      "status": {
+        "es": "Desplegado · En evolución",
+        "en": "Live · Evolving"
+      },
+      "tags": [
+        "fullstack",
+        "architecture",
+        "mobile"
+      ],
+      "priority": 1,
+      "summary": {
+        "es": "Plataforma full stack para gestionar gastos personales y compartidos mediante tableros colaborativos, con aplicación web, app móvil y API GraphQL propia.",
+        "en": "Full stack platform for managing personal and shared expenses through collaborative boards, with a web application, mobile app, and its own GraphQL API."
+      },
+      "description": {
+        "es": "Proyecto personal iniciado en abril de 2025 y desarrollado en solitario, con más de 480 commits. Nació como una colaboración en la que un compañero llevaba el backend en Java y yo el frontend; cuando él dejó el proyecto por falta de tiempo, asumí el backend completo y lo reescribí sobre mi propio stack, usándolo deliberadamente como campo de práctica de arquitectura hexagonal y diseño guiado por el dominio. El resultado es un monorepo con aplicación web en Next.js, app móvil en Expo, API GraphQL y un paquete de dominio compartido, desplegado en producción.",
+        "en": "Personal project started in April 2025 and developed solo, with over 480 commits. It began as a collaboration where a teammate handled the Java backend and I handled the frontend; when he left the project for lack of time, I took over the entire backend and rewrote it on my own stack, deliberately using it as a practice ground for hexagonal architecture and domain-driven design. The result is a monorepo with a Next.js web app, an Expo mobile app, a GraphQL API, and a shared domain package, deployed to production."
+      },
+      "highlights": [
+        {
+          "id": "hl-ec-ddd",
+          "priority": 1,
+          "tags": [
+            "backend",
+            "architecture"
+          ],
+          "text": {
+            "es": "Diseñé el paquete de dominio siguiendo arquitectura hexagonal y DDD: cada módulo con dominio, aplicación e infraestructura, objetos de valor, raíces de agregado, infraestructura de eventos de dominio, un patrón Criteria propio para filtros, orden y paginación, y separación entre repositorios de escritura y de consulta. Documenté una guía de implementación para que los módulos nuevos sigan el mismo patrón.",
+            "en": "Designed the domain package following hexagonal architecture and DDD: each module with domain, application, and infrastructure layers, value objects, aggregate roots, domain event infrastructure, a custom Criteria pattern for filtering, sorting, and pagination, and separation between write and read repositories. I documented an implementation guide so new modules follow the same pattern."
+          }
+        },
+        {
+          "id": "hl-ec-graphql",
+          "priority": 2,
+          "tags": [
+            "backend"
+          ],
+          "text": {
+            "es": "Construí la API GraphQL con Yoga Server y un cliente tipado generado con genql, con autenticación JWT, protección automática de resolvers por rol y middleware de formateo que normaliza los errores de dominio y de aplicación en una estructura común.",
+            "en": "Built the GraphQL API with Yoga Server and a typed client generated with genql, including JWT authentication, automatic role-based resolver protection, and a formatting middleware that normalizes domain and application errors into a common structure."
+          }
+        },
+        {
+          "id": "hl-ec-monorepo",
+          "priority": 3,
+          "tags": [
+            "architecture",
+            "fullstack"
+          ],
+          "text": {
+            "es": "Estructuré el monorepo con Turborepo y Yarn: aplicación web, app móvil y API GraphQL como aplicaciones independientes, sobre paquetes compartidos de dominio, acceso a base de datos y cliente GraphQL tipado.",
+            "en": "Structured the monorepo with Turborepo and Yarn: web application, mobile app, and GraphQL API as independent apps on top of shared packages for domain, database access, and a typed GraphQL client."
+          }
+        },
+        {
+          "id": "hl-ec-data-model",
+          "priority": 4,
+          "tags": [
+            "backend",
+            "architecture"
+          ],
+          "text": {
+            "es": "Migré el modelo de datos de categorías y transacciones para que pertenezcan al tablero en lugar del usuario, habilitando los tableros compartidos: refactoricé dominio, repositorios, esquema GraphQL, migraciones y frontend sin perder los datos existentes.",
+            "en": "Migrated the categories and transactions data model so they belong to the board instead of the user, enabling shared boards: I refactored domain, repositories, GraphQL schema, migrations, and frontend without losing existing data."
+          }
+        },
+        {
+          "id": "hl-ec-web",
+          "priority": 5,
+          "tags": [
+            "frontend"
+          ],
+          "text": {
+            "es": "Desarrollé la aplicación web en Next.js con HeroUI y Tailwind: tableros con búsqueda con debounce, CRUD de categorías y transacciones, filtros por tipo, categoría y rango de fechas, tablero de indicadores con gráficas en Recharts, tema claro/oscuro y página de ajustes de cuenta.",
+            "en": "Built the web application in Next.js with HeroUI and Tailwind: boards with debounced search, category and transaction CRUD, filters by type, category, and date range, a dashboard with Recharts charts, light/dark theme, and an account settings page."
+          }
+        },
+        {
+          "id": "hl-ec-mobile",
+          "priority": 6,
+          "tags": [
+            "mobile"
+          ],
+          "text": {
+            "es": "Construí la app móvil con Expo Router, NativeWind y Gluestack UI, reutilizando el cliente GraphQL del monorepo: autenticación, registro, recuperación de contraseña, tableros, categorías y transacciones con filtros.",
+            "en": "Built the mobile app with Expo Router, NativeWind, and Gluestack UI, reusing the monorepo's GraphQL client: authentication, registration, password recovery, boards, categories, and transactions with filters."
+          }
+        },
+        {
+          "id": "hl-ec-db",
+          "priority": 7,
+          "tags": [
+            "backend"
+          ],
+          "text": {
+            "es": "Modelé la base de datos PostgreSQL con Drizzle ORM y migraciones con tipado seguro, usando decimal.js para operaciones monetarias y evitar errores de coma flotante.",
+            "en": "Modeled the PostgreSQL database with Drizzle ORM and type-safe migrations, using decimal.js for monetary operations to avoid floating-point errors."
+          }
+        },
+        {
+          "id": "hl-ec-cicd",
+          "priority": 8,
+          "tags": [
+            "infra"
+          ],
+          "text": {
+            "es": "Configuré el despliegue y la entrega continua en GitHub Actions con workflows separados para web y API, versionado automático con semantic-release y despliegue en Vercel, incluyendo la API GraphQL como funciones serverless con endpoint de health check.",
+            "en": "Set up deployment and continuous delivery on GitHub Actions with separate workflows for web and API, automatic versioning with semantic-release, and Vercel deployment, including the GraphQL API as serverless functions with a health check endpoint."
+          }
+        },
+        {
+          "id": "hl-ec-feedback",
+          "priority": 9,
+          "tags": [
+            "product",
+            "fullstack"
+          ],
+          "text": {
+            "es": "Implementé un canal de retroalimentación dentro del producto: los reportes de errores, mejoras e ideas se envían por webhook a Discord y se registran automáticamente en una base de Notion mediante su API.",
+            "en": "Implemented an in-product feedback channel: bug reports, improvements, and ideas are sent through a Discord webhook and automatically logged into a Notion database through its API."
+          }
+        }
+      ],
+      "technologies": [
+        "TypeScript",
+        "Node.js",
+        "Next.js",
+        "React",
+        "HeroUI",
+        "Tailwind CSS",
+        "Recharts",
+        "React Native",
+        "Expo",
+        "Expo Router",
+        "NativeWind",
+        "Gluestack UI",
+        "TanStack Query",
+        "Zustand",
+        "GraphQL",
+        "GraphQL Yoga",
+        "genql",
+        "JWT",
+        "Drizzle ORM",
+        "PostgreSQL",
+        "Neon",
+        "decimal.js",
+        "Turborepo",
+        "Yarn",
+        "GitHub Actions",
+        "semantic-release",
+        "Vercel"
+      ],
+      "url": "https://control-gastos-web.vercel.app/",
+      "repo": "",
+      "image": "https://res.cloudinary.com/dgmgdb1hg/image/upload/v1783916116/e2msum9vm7chfqxw7smh.png"
+    },
+    {
+      "id": "proj-vision-craft",
+      "featured": true,
+      "projectStatus": "active",
+      "name": {
+        "es": "Vision Craft",
+        "en": "Vision Craft"
+      },
+      "startDate": "2026-04",
+      "endDate": null,
+      "status": {
+        "es": "Desplegado · En evolución",
+        "en": "Live · Evolving"
+      },
+      "tags": [
+        "frontend",
+        "architecture",
+        "product"
+      ],
+      "priority": 2,
+      "summary": {
+        "es": "Aplicación web para crear vision boards: buscar imágenes, componerlas en un lienzo editable y exportarlas listas para imprimir a escala real.",
+        "en": "Web app for creating vision boards: search images, compose them on an editable canvas, and export them ready to print at real physical scale."
+      },
+      "description": {
+        "es": "Vision Craft es una aplicación construida con Astro y React (arquitectura de islas) que permite crear tableros visuales sin necesidad de backend tradicional. El usuario busca imágenes desde varios proveedores (Unsplash y Pexels a través de un proxy de API que mantiene las claves en el servidor), las organiza en un lienzo interactivo con arrastre y redimensionado sobre Konva, agrega texto y finalmente exporta el resultado en PNG o JSON. Su diferenciador es un motor de impresión que trabaja internamente en milímetros y convierte a escala física real, con soporte para dividir tableros grandes en múltiples hojas (tiling) para impresiones tipo póster de pared.",
+        "en": "Vision Craft is an application built with Astro and React (islands architecture) that lets users create visual boards without a traditional backend. Users search images from multiple providers (Unsplash and Pexels through an API proxy that keeps keys server-side), arrange them on an interactive canvas with drag & resize powered by Konva, add text, and finally export the result as PNG or JSON. Its differentiator is a print engine that works internally in millimetres and converts to real physical scale, with support for splitting large boards into multiple sheets (tiling) for wall-poster prints."
+      },
+      "highlights": [
+        {
+          "id": "hl-vc-architecture",
+          "priority": 1,
+          "tags": [
+            "architecture",
+            "frontend"
+          ],
+          "text": {
+            "es": "Diseñé una arquitectura modular por dominios (Explore, Canvas, Design, Export) con islas de React sobre Astro para cargar interactividad solo donde se necesita.",
+            "en": "Designed a modular, domain-driven architecture (Explore, Canvas, Design, Export) using React islands on Astro to load interactivity only where needed."
+          }
+        },
+        {
+          "id": "hl-vc-print-engine",
+          "priority": 2,
+          "tags": [
+            "frontend",
+            "product"
+          ],
+          "text": {
+            "es": "Creé un motor de impresión y exportación a escala física real con conversión mm↔px y división en mosaico (tiling) para pósters de pared en varias hojas.",
+            "en": "Created a print and export engine at real physical scale with mm↔px conversion and tiling to split wall posters across multiple sheets."
+          }
+        },
+        {
+          "id": "hl-vc-search",
+          "priority": 3,
+          "tags": [
+            "frontend",
+            "backend"
+          ],
+          "text": {
+            "es": "Implementé la incorporación de imágenes desde tres fuentes: búsqueda multi-proveedor (Unsplash y Pexels) a través de un endpoint de API en Astro que mantiene las claves del lado del servidor, carga de archivos por arrastre y pegado de enlaces directos.",
+            "en": "Implemented image sourcing from three channels: multi-provider search (Unsplash and Pexels) through an Astro API endpoint that keeps keys server-side, drag-and-drop file upload, and direct link pasting."
+          }
+        },
+        {
+          "id": "hl-vc-history",
+          "priority": 4,
+          "tags": [
+            "frontend"
+          ],
+          "text": {
+            "es": "Implementé deshacer/rehacer sobre el lienzo con pilas de estados, límite de 50 pasos y una ventana de coalescencia de 500 ms que agrupa cambios continuos en un solo punto de historial, evitando que un arrastre genere decenas de entradas.",
+            "en": "Implemented canvas undo/redo with state stacks, a 50-step limit, and a 500 ms coalescing window that groups continuous changes into a single history entry, preventing a single drag from generating dozens of entries."
+          }
+        },
+        {
+          "id": "hl-vc-canvas",
+          "priority": 5,
+          "tags": [
+            "frontend"
+          ],
+          "text": {
+            "es": "Construí el editor de lienzo con Konva y react-konva, con arrastre, redimensionado y capas de imágenes y texto.",
+            "en": "Built the canvas editor with Konva and react-konva, supporting drag, resize, and image and text layers."
+          }
+        },
+        {
+          "id": "hl-vc-presets",
+          "priority": 6,
+          "tags": [
+            "frontend",
+            "product"
+          ],
+          "text": {
+            "es": "Desarrollé un sistema de presets de tablero (A4, A3, US Letter, pósters, cuadrado) y dimensiones personalizadas trabajando internamente en milímetros.",
+            "en": "Developed a board preset system (A4, A3, US Letter, posters, square) plus custom dimensions, working internally in millimetres."
+          }
+        },
+        {
+          "id": "hl-vc-persistence",
+          "priority": 7,
+          "tags": [
+            "frontend"
+          ],
+          "text": {
+            "es": "Integré persistencia local con nanostores para guardar automáticamente selecciones y tableros sin requerir autenticación.",
+            "en": "Integrated local persistence with nanostores to auto-save selections and boards without requiring authentication."
+          }
+        },
+        {
+          "id": "hl-vc-export",
+          "priority": 8,
+          "tags": [
+            "frontend"
+          ],
+          "text": {
+            "es": "Añadí exportación en PNG y JSON para imprimir y respaldar/importar tableros.",
+            "en": "Added PNG and JSON export for printing and backing up/importing boards."
+          }
+        },
+        {
+          "id": "hl-vc-cicd",
+          "priority": 9,
+          "tags": [
+            "infra"
+          ],
+          "text": {
+            "es": "Monté el pipeline de CI/CD en GitHub Actions: build de verificación en cada pull request, versionado y notas de versión automáticas con semantic-release a partir de los commits, y despliegue a Vercel por CLI, con filtrado por rutas para omitir el trabajo cuando el cambio no afecta la aplicación y control de concurrencia entre releases. Añadí ganchos de pre-commit con Husky y lint-staged.",
+            "en": "Set up the CI/CD pipeline on GitHub Actions: verification build on every pull request, automatic versioning and release notes with semantic-release derived from commits, and Vercel deployment via CLI, with path filtering to skip work when a change does not affect the application and concurrency control between releases. I added pre-commit hooks with Husky and lint-staged."
+          }
+        }
+      ],
+      "technologies": [
+        "TypeScript",
+        "Astro",
+        "React",
+        "Tailwind CSS",
+        "DaisyUI",
+        "Konva",
+        "react-konva",
+        "Nanostores",
+        "Vercel",
+        "Unsplash API",
+        "Pexels API",
+        "Bun",
+        "Husky",
+        "semantic-release",
+        "GitHub Actions"
+      ],
+      "url": "https://vision-craft-delta.vercel.app/",
+      "repo": "https://github.com/Freddyz5/vision-craft",
+      "image": "https://res.cloudinary.com/dgmgdb1hg/image/upload/v1783915717/ttso0hmyndo4g11bck4e.png"
+    },
+    {
+      "id": "proj-jardin-zen",
+      "featured": false,
+      "projectStatus": "personal",
+      "name": {
+        "es": "Jardín Zen",
+        "en": "Jardín Zen"
+      },
+      "startDate": "2026-03",
+      "endDate": "2026-04",
+      "status": {
+        "es": "Completado",
+        "en": "Completed"
+      },
+      "tags": [
+        "mobile",
+        "frontend"
+      ],
+      "priority": 3,
+      "summary": {
+        "es": "Aplicación móvil de sonidos ambientales para relajación y sueño, construida con React Native y Expo — un regalo personal con reproductor, temporizador de sueño y temas claro/oscuro.",
+        "en": "Mobile app of ambient relaxation and sleep sounds, built with React Native and Expo — a personal gift with an audio player, sleep timer, and light/dark themes."
+      },
+      "description": {
+        "es": "Jardín Zen es una aplicación móvil personal (React Native + Expo Router) que ofrece cinco paisajes sonoros —fuente, lluvia, río, cascada y playa— pensada como un espacio tranquilo para desconectar. Cada sonido se reproduce en loop con fade-in/fade-out y una forma de onda interactiva para navegar la pista, y cuenta con un temporizador de sueño que atenúa el volumen y detiene la reproducción incluso con la app en segundo plano. La interfaz usa Tamagui con temas claro/oscuro y paletas de color propias por sonido, y el proyecto está preparado para generar builds nativos de Android/iOS mediante EAS y Gradle.",
+        "en": "Jardín Zen is a personal mobile app (React Native + Expo Router) offering five ambient soundscapes —fountain, rain, river, waterfall, and beach— designed as a calm space to unwind. Each sound loops with a fade-in/fade-out and an interactive waveform for scrubbing the track, plus a sleep timer that fades out the volume and stops playback even while the app runs in the background. The UI is built with Tamagui with light/dark themes and per-sound color palettes, and the project is set up to produce native Android/iOS builds via EAS and Gradle."
+      },
+      "highlights": [
+        {
+          "id": "hl-jz-architecture",
+          "priority": 1,
+          "tags": [
+            "mobile",
+            "architecture"
+          ],
+          "text": {
+            "es": "Diseñé la arquitectura por features (welcome, home, player) con Expo Router y grupos de rutas, separando código compartido en src/shared y configuraciones de librerías en src/lib.",
+            "en": "Designed the feature-based architecture (welcome, home, player) with Expo Router and route groups, separating shared code into src/shared and library configuration into src/lib."
+          }
+        },
+        {
+          "id": "hl-jz-player",
+          "priority": 2,
+          "tags": [
+            "mobile",
+            "frontend"
+          ],
+          "text": {
+            "es": "Implementé un reproductor de audio ambiental con reproducción en loop, fade-in/fade-out suaves y una forma de onda interactiva con seek táctil para navegar la pista.",
+            "en": "Implemented an ambient audio player with looped playback, smooth fade-in/fade-out, and an interactive waveform with touch-seek for scrubbing the track."
+          }
+        },
+        {
+          "id": "hl-jz-sleep-timer",
+          "priority": 3,
+          "tags": [
+            "mobile",
+            "product"
+          ],
+          "text": {
+            "es": "Construí un temporizador de sueño configurable con cuenta regresiva en segundo plano que atenúa el volumen gradualmente y detiene la reproducción al finalizar, persistiendo la selección por sonido.",
+            "en": "Built a configurable sleep timer with a background countdown that gradually fades out the volume and stops playback when it finishes, persisting the selection per sound."
+          }
+        },
+        {
+          "id": "hl-jz-theming",
+          "priority": 4,
+          "tags": [
+            "frontend",
+            "mobile"
+          ],
+          "text": {
+            "es": "Desarrollé un sistema de temas claro/oscuro con Zustand y Tamagui, con paletas de color dinámicas por sonido que adaptan toda la pantalla del reproductor.",
+            "en": "Developed a light/dark theming system with Zustand and Tamagui, with per-sound dynamic color palettes that adapt the entire player screen."
+          }
+        },
+        {
+          "id": "hl-jz-native-build",
+          "priority": 5,
+          "tags": [
+            "infra",
+            "mobile"
+          ],
+          "text": {
+            "es": "Configuré la compilación nativa para Android e iOS con Expo Application Services (EAS) y builds locales con Gradle, habilitando reproducción de audio en segundo plano en iOS.",
+            "en": "Set up native Android and iOS builds with Expo Application Services (EAS) and local Gradle builds, enabling background audio playback on iOS."
+          }
+        }
+      ],
+      "technologies": [
+        "TypeScript",
+        "React Native",
+        "Expo",
+        "Expo Router",
+        "Tamagui",
+        "Zustand",
+        "Expo AV",
+        "React Native Reanimated",
+        "React Native SVG",
+        "React Navigation",
+        "Expo Blur",
+        "Expo Linear Gradient",
+        "EAS"
+      ],
+      "url": "",
+      "repo": "https://github.com/Freddyz5/jardin-zen",
+      "image": "https://res.cloudinary.com/dgmgdb1hg/image/upload/c_crop,g_north_west,h_500,w_714,y_293/lngczdg3zgvmvzjdmgug.jpg"
+    }
+  ]
+}
