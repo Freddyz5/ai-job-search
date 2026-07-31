@@ -222,13 +222,14 @@ they actually submitted. **No file upload happens here** — Freddy attaches the
      them — **never rename or remove** the existing options (`Frontend v1`, `Full Stack v2`,
      `Startup v3`, `Base ingles`, `Base espanol`); those belong to Freddy's own manually-made
      template rows and must keep working un-touched.
-   - Create a new row for the CV: `Nombre` = `<Empresa> – <Rol> (CV)`, `Tipo` = `CV`, `Version` =
+   - Create a new row for the CV: `Nombre` = `💾 <Empresa> – <Rol> (CV)`, `Tipo` = `CV`, `Version` =
      the role-type classification from step 3, `Plataformas objetivo` = the platform from the
      matched Job Tracker row, `Notas de cambios` = one line on what was tailored/reworded for
      this posting. Leave `Archivo` empty. **Paste the full `cv.json` content into the page body**
      as a code block (language: json) — that's the complete record; no file gets generated or
      uploaded by this command.
-   - Create a new row for the cover letter the same way: `Tipo` = `Carta en ingles` or
+   - Create a new row for the cover letter the same way: `Nombre` = `✉️ <Empresa> – <Rol>
+     (Carta)`, `Tipo` = `Carta en ingles` or
      `Carta en espanol` matching the posting's language, `Version` = same role-type
      classification, page body = the full `cover_letter.md` text.
    - **Check for reuse first:** before creating either row, look for an existing CVs y Cartas row
