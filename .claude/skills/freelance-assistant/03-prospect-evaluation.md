@@ -1,0 +1,226 @@
+---
+framework_version: 1.0.0
+---
+
+# Local Prospect Evaluation Framework (Quito)
+
+Mirrors `job-application-assistant/04-job-evaluation.md`, but for local client acquisition.
+Sourcing runs on **Google Maps** data. This file is the rulebook for `/maps-qualify`; the
+pricing, sector taxonomy and approach-script rules stay in `02-local-prospects.md`.
+
+**Read this before scoring anything:** the qualifying signal is *not* "has no website". It is
+**operational pain published in the business's own Google reviews** by its own customers, with
+a date and a quotable sentence. A business with a bad website and happy customers is a $400
+job at best. A business with a decent website and six reviews complaining that orders arrive
+late is the $2,000+ job.
+
+## Capacity constraint
+
+Freddy has **3-5 h/week** for prospecting, on top of employment. Every rule below exists to
+protect that budget. If a step would blow it, the step is wrong, not the budget.
+
+---
+
+## The three layers
+
+All three run in parallel and are fed by **one** prospecting motion. There are not two funnels;
+there is one funnel with three price exits. The small layers are cash flow while the big layer
+matures — they are not a different business.
+
+| Layer | Ticket | What it is | `Necesidad detectada` |
+|---|---|---|---|
+| **Grande** | $2,000+ | Internal panel: inventory, orders, quotes, customers | `Dashboard` or `Automatizacion` |
+| **Mediana** | $400-800 | Website + product catalogue | `Sin web` / `Web desactualizada` / `Sin tienda online` |
+| **Micro** | $100-200 | Fixes, small changes, maintenance | `Otro` (describe in `Notas`) |
+
+The mediana/micro layers are normally reached as a **downsell of the same contact**, not as a
+separate search. The pitch goes out about operational pain; if the owner says "that's too
+expensive, but I do need X", that is the downsell, at zero extra prospecting cost.
+
+### Governance rule — cap by hours, not by client count
+
+<!-- This is the rule that keeps the small layer from eating the big one. -->
+
+The control metric is **$/hour**, not client count and not total revenue. If the mediana +
+micro layers together consume more than **8 h/month**, raise prices or drop clients. Below
+that, five small clients are healthy.
+
+When `/prospect-outcome` closes anything in the mediana or micro layer, remind Freddy of this
+cap and ask for an estimate of monthly hours committed. Record it in `Notas`.
+
+### Detachability conditions (mediana and micro only)
+
+Never quote a mediana or micro project without all three. Without them a $400 client becomes
+lifetime free support, and the cost lands exactly when the big project needs the hours.
+
+1. Scope closed in writing, with an **explicit project end date**
+2. Post-delivery changes quoted separately, **always**, no exceptions
+3. Monthly maintenance **optional and cancellable** ($50-150/mo, per `02-local-prospects.md`)
+
+If the user drafts a proposal missing any of these, flag it before saving.
+
+---
+
+## Target verticals
+
+Ordered by operational pain x ability to pay x decision speed. The `Sector` column is the value
+to write to the CSV — these all map onto the **existing** taxonomy in `02-local-prospects.md`,
+so no new Notion select options are needed.
+
+### Tier A — target for the grande layer
+
+| Vertical | `Sector` | Typical pain |
+|---|---|---|
+| Distributors / mass-consumption wholesalers | `Comercio` | Orders, stock, routes, overdue receivables |
+| Food distributors with refrigeration | `Comercio` | Cold chain (direct MTC parallel) |
+| Small importers | `Comercio` | Serials, batches, customs clearance |
+| Hardware stores with 2+ branches | `Comercio` | Stock visibility across locations |
+| Transport, courier, moving companies | `Servicios` | Dispatch, waybills, tracking |
+
+### Tier B — good ticket, slower cycle
+
+| Vertical | `Sector` | Typical pain |
+|---|---|---|
+| Mechanic shops / tyre-and-service centres | `Servicios` | Work orders, parts, per-vehicle history |
+| Dental labs and opticians | `Clinica / Salud` | Traceable orders (direct Media Value parallel) |
+| Print shops and screen printing | `Servicios` | Quotes and production orders |
+| Agri-supply and veterinary distributors | `Comercio` | Stock, batches, expiry dates |
+
+### Tier C — mediana / micro layer only
+
+Consultancies, gyms, restaurants with multiple locations → `Servicios` / `Restaurante`.
+Never pitch the grande layer here; the ticket does not support it.
+
+### Excluded for now
+
+**Medical clinics.** Sensitive patient data, committee decisions, multi-month cycles. If Freddy
+asks for them anyway, quote this line back and let him override explicitly.
+
+---
+
+## Eligibility gate — run before scoring
+
+Hard filter, not a scoring dimension. A FAIL is dropped without a score and without a draft.
+
+| Condition | Verdict |
+|---|---|
+| Fewer than 10 reviews | **FAIL** — no operational volume, and no public pain to cite |
+| Chain or franchise | **FAIL** — the decision is not made in Quito |
+| Vertical outside Tier A/B/C | **FAIL** — off-niche, the testimonial would not compound |
+| Negative reviews are **only** about price or staff rudeness | **FAIL** for the grande layer — that is a service problem, not a systems problem. May still pass as mediana/micro |
+| Medical clinic | **FAIL** unless Freddy explicitly overrides |
+| No phone number and no other reachable contact | **FAIL** — unreachable |
+
+**Rating alone is never a gate.** A 4.6-star business with 200 reviews and three complaints
+about late orders is a better prospect than a 3.2-star business with eleven reviews about rude
+staff. Read the review text, not the score.
+
+---
+
+## Scoring dimensions
+
+Score only what passed the gate.
+
+### 1. Operational pain evidence (0-100) — weight 40%
+
+| Score | Meaning |
+|---|---|
+| 80-100 | 3+ reviews naming delays, stock errors, unanswered orders, invoicing or quoting failures |
+| 60-79 | 1-2 such reviews, specific and recent |
+| 40-59 | Pain implied but not stated ("slow", "disorganised") with no detail |
+| 0-39 | No operational signal in the reviews |
+
+Anything below 40 here caps the prospect at the mediana layer regardless of other scores.
+
+### 2. Operational volume (0-100) — weight 25%
+
+Proxy for ability to pay and for the problem being worth solving.
+
+| Score | Meaning |
+|---|---|
+| 80-100 | 100+ reviews, or 2+ branches, or wide hours (open Sundays / 12h+ days) |
+| 60-79 | 40-99 reviews, single busy location |
+| 40-59 | 20-39 reviews |
+| 0-39 | Under 20 reviews |
+
+### 3. Digital maturity (0-100) — weight 15%
+
+Counter-intuitive scoring: **too little maturity is as bad as too much**. A business with no
+digital presence at all usually has no budget and no internal champion; one with a full
+existing ERP has no need.
+
+| Score | Meaning |
+|---|---|
+| 80-100 | Has a basic site or active social commerce, clearly outgrown it, no visible internal system |
+| 60-79 | Outdated site, or Facebook/Instagram used as the whole storefront |
+| 40-59 | No digital presence whatsoever |
+| 0-39 | Already runs a real ERP or custom system |
+
+### 4. Reachability (0-100) — weight 20%
+
+| Score | Meaning |
+|---|---|
+| 80-100 | Direct phone and physical address in a zone Freddy can visit in person |
+| 60-79 | Phone only, or address far from his usual routes |
+| 40-59 | Generic contact form or shared switchboard |
+| 0-39 | Reachable only through a gatekeeper |
+
+In-person visit is the highest-converting first touch for this market — `02-local-prospects.md`
+is written around a spoken script for a reason. Weight physical reachability accordingly.
+
+## Weighted total and layer assignment
+
+| Total | Layer to pitch | Action |
+|---|---|---|
+| 75+ | **Grande** | Run `/prospect` immediately, this week |
+| 60-74 | **Grande**, mediana as fallback | Run `/prospect`, prepare the downsell in advance |
+| 45-59 | **Mediana** | Queue it; contact when the grande pipeline has slack |
+| 30-44 | **Micro** | Only if the visit costs nothing extra (same street as another prospect) |
+| <30 | None | Drop |
+
+---
+
+## Pain extraction rules
+
+The extracted pain is the raw material for `/prospect`'s approach script. It is the difference
+between "hi, do you have a website?" and "I saw three customers this year complaining that
+quotes come back incomplete". Get it right or the whole pitch collapses.
+
+- **Quote verbatim, in the review's original language.** Never paraphrase into the pitch and
+  never translate unless Freddy asks. If the review was left in English on a Spanish-language
+  business, note that.
+- **Record the date.** A complaint from 2019 is not evidence about how the business runs today;
+  prefer the last 18 months and mark anything older as stale.
+- **Extract at most 3 pains per business.** More than that is not a prospect, it is a dying
+  business.
+- **Name the operational process behind the complaint**, not just the complaint. "Tarda en
+  entregar la factura" → *invoicing is manual and downstream of dispatch*. That translation is
+  the actual product insight, and it is what makes the pitch sound like a specialist.
+- **Never invent or embellish a quote.** If no usable quote exists, the business scores low on
+  dimension 1 and that is the honest answer. A fabricated pain quoted to a business owner's
+  face ends the relationship and the referral chain with it.
+
+## Output format
+
+```
+## Prospect Evaluation: [Business] ([Vertical])
+
+| Dimension | Score | Notes |
+|---|---|---|
+| Operational pain | XX/100 | [brief] |
+| Operational volume | XX/100 | [brief] |
+| Digital maturity | XX/100 | [brief] |
+| Reachability | XX/100 | [brief] |
+
+**Total: XX/100** → Layer: [Grande / Mediana / Micro / Drop]
+
+### Pain evidence
+1. "[verbatim quote]" ([date]) → [operational process behind it]
+2. ...
+
+### Suggested `Necesidad detectada`
+[value from the taxonomy in 02-local-prospects.md]
+
+### Next step
+[/prospect "<Business>" <Sector> | queue | drop]
+```

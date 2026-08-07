@@ -77,6 +77,7 @@ Software consultancy building products for international clients (remote / Quito
 
 ### Software & Tools
 - Git, GitHub, GitHub Actions, Vercel, Maestro (E2E testing), Agile/Scrum
+- Claude Code (agentic coding, daily use)
 
 ## Publications
 <!-- List peer-reviewed publications, if any -->

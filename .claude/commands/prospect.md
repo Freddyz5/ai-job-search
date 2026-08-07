@@ -9,6 +9,21 @@
 Read `freelance/tracker.csv`. If a row already exists for this business name (`Canal=Local
 Quito`), stop and show its current state instead of creating a duplicate.
 
+## Step 0.5: Check for a Qualified Row
+
+Read `freelance/local/prospects_qualified.csv`. If this business is already there (from
+`/maps-qualify`), **use it** - it carries the score, the assigned layer, the verbatim pain
+quote and the operational process behind it. That is far stronger material than anything a
+fresh search will produce, and re-deriving it wastes the sourcing work.
+
+When a qualified row exists:
+- Skip the guesswork in Step 1; `Necesidad detectada` and `Sector` are already set
+- Build the Step 2 script around the **quoted review**, not around the website's state
+- Price to the assigned `Capa` in Step 3
+- Set `Estado sourcing=Promovido` on the qualified row once the tracker row is written
+
+If there's no qualified row, continue below - manual prospects stay fully supported.
+
 ## Step 1: Detect the Need
 
 Don't assume - check. `WebSearch` the business name + "Quito" to see if they have a real
@@ -30,6 +45,14 @@ Using the reference rates and anti-underquoting rule from `02-local-prospects.md
 proposal with a specific price (not a vague range) matched to the detected need and a
 realistic scope.
 
+For `Capa=Mediana` or `Micro`, the three **detachability conditions** in
+`03-prospect-evaluation.md` are mandatory: written closed scope with an explicit end date,
+post-delivery changes quoted separately, and optional cancellable maintenance. A small project
+without them turns into unpaid lifetime support.
+
+For `Capa=Grande`, check whether the panel offer has actually been defined. If it's still the
+placeholder range in `02-local-prospects.md`, say so and stop rather than quoting a number.
+
 ## Step 4: Save
 
 Write to `freelance/local/<negocio>/prospect.md` (slugify the business name for the folder).
@@ -42,4 +65,9 @@ Add a row to `freelance/tracker.csv`: `Canal=Local Quito`, `Negocio / Proyecto=<
 ## Step 6: Confirm
 
 Show the script and the proposal. Remind: `/prospect-demo` next if a landing demo would help
-close it, `/prospect-outcome` after the actual visit.
+close it, `/prospect-outcome` after the actual visit, `/prospect-followup` if there's no reply
+in 5-7 days.
+
+**Never build a demo before the first contact gets a reply.** At 3-5 h/week a demo consumes the
+entire prospecting budget on a single business that hasn't shown any interest yet. The demo is
+the second touch, not the first.
