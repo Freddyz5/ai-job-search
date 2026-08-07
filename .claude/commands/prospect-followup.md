@@ -11,18 +11,27 @@ Freddy remembers to do.
 
 ## Step 1: Find what's due
 
-Read `freelance/tracker.csv`, rows where `Canal=Local Quito`. A row is due when:
+**Read the state from Notion, not from the CSV.** Query the **🏢 Clientes Freelance** database
+(`collection://4238a325-d988-41c9-ac56-5c39810d3a2f`) for `Canal=Local Quito` pages. Freddy
+moves states and dates on that board after a real visit, often from his phone, so the CSV can be
+hours or days stale — and a stale date here means missing the follow-up at the moment it still
+mattered. If Notion MCP is unavailable, say so, fall back to `freelance/tracker.csv`, and warn
+in the report that the dates may be out of date.
+
+A page is due when:
 
 - `Estado` is `Contactado` or `Demo listo`, **and**
 - `Fecha seguimiento` is today or earlier, **or** `Fecha seguimiento` is empty and
   `Fecha contacto` is 5+ days ago
 
-Skip rows in `Cliente activo`, `Mantenimiento`, `Descartado`, or `En negociacion` — a live
-negotiation needs a real reply, not a templated nudge.
+Skip `Prospecto` and `Preparado` — those have never been contacted, so there is nothing to
+follow up on. Skip `Cliente activo`, `Mantenimiento`, `Descartado`, and `En negociacion` — a
+live negotiation needs a real reply, not a templated nudge.
 
 ## Step 2: Determine the touch number
 
-Count prior touches from `Notas` (each follow-up appends a dated line). Then:
+Count prior touches from the page's `Notas` in Notion (each follow-up appends a dated line).
+Then:
 
 | Touch | Timing after previous | Angle |
 |---|---|---|
@@ -53,18 +62,26 @@ If touch 1 got no response at all, consider recommending an in-person visit inst
 written touch 2. For this market that converts better than any message, and Step 1's date data
 tells you whether the business is on a route Freddy already walks.
 
-## Step 4: Update the tracker
+## Step 4: Record the touch
 
 For each follow-up Freddy confirms he actually sent:
 
-- Append a dated line to `Notas`: `YYYY-MM-DD toque N enviado (canal)`
-- Set `Fecha seguimiento` to the next due date per the touch table
-- Leave `Estado` unchanged — a follow-up isn't a state change; `/prospect-outcome` owns that
+- Append a dated line to the Notion page's `Notas`: `YYYY-MM-DD toque N enviado (canal)`
+- Set `Fecha seguimiento` on the page to the next due date per the touch table
+- Leave `Estado` unchanged — a follow-up is not a state change
 
-**Only write after confirmation.** Drafting isn't sending, and a tracker that records unsent
-messages is worse than no tracker: it silently kills the follow-up that was actually needed.
+`Notas` and `Fecha seguimiento` are Freddy-owned fields under `/prospect-sync`'s ownership
+contract, so this command **appends** to them rather than rewriting, and only after he confirms.
+Never clear an existing note.
+
+The local CSV is not written here. `/prospect-sync --pull` brings these values down to
+`tracker.csv` on its next run.
+
+**Only write after confirmation.** Drafting isn't sending, and a board that records unsent
+messages is worse than no board: it silently kills the follow-up that was actually needed.
 
 ## Step 5: Report
 
 List what's due, what was drafted, and what's coming due in the next 7 days so Freddy can plan
-the week's 1 h follow-up block. Flag anything sitting at touch 3 with no reply as ready to drop.
+the week's 1 h follow-up block. Flag anything sitting at touch 3 with no reply as ready to drop — recommend it, but let Freddy
+set `Descartado` on the board himself. Terminal states are his call, not this command's.

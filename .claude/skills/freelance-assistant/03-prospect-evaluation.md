@@ -8,6 +8,25 @@ Mirrors `job-application-assistant/04-job-evaluation.md`, but for local client a
 Sourcing runs on **Google Maps** data. This file is the rulebook for `/maps-qualify`; the
 pricing, sector taxonomy and approach-script rules stay in `02-local-prospects.md`.
 
+## Where this sits in the pipeline
+
+The local channel mirrors the job-search flow: `/maps-qualify` is its `/rank`, `/prospect-sync`
+is its `/notion-sync`, and `/prospect` is its `/apply-json`.
+
+```
+Google Maps -> prospects_raw.csv -> /maps-qualify -> prospects_qualified.csv
+                                                            |
+                                                   /prospect-sync -> Notion board
+                                                            |
+                                              Freddy triages, picks one
+                                                            |
+                                              /prospect -> tracker.csv
+```
+
+**Notion is the source of truth for pipeline state; the CSVs are history.** Scoring exists to
+rank what reaches the board — it never decides who gets contacted. That call is Freddy's, made
+on the board, and a score is an argument he can overrule.
+
 **Read this before scoring anything:** the qualifying signal is *not* "has no website". It is
 **operational pain published in the business's own Google reviews** by its own customers, with
 a date and a quotable sentence. A business with a bad website and happy customers is a $400
@@ -45,8 +64,8 @@ The control metric is **$/hour**, not client count and not total revenue. If the
 micro layers together consume more than **8 h/month**, raise prices or drop clients. Below
 that, five small clients are healthy.
 
-When `/prospect-outcome` closes anything in the mediana or micro layer, remind Freddy of this
-cap and ask for an estimate of monthly hours committed. Record it in `Notas`.
+When `/prospect-outcome` records a close in the mediana or micro layer, remind Freddy of this
+cap and ask for an estimate of monthly hours committed.
 
 ### Detachability conditions (mediana and micro only)
 
@@ -172,11 +191,14 @@ is written around a spoken script for a reason. Weight physical reachability acc
 
 | Total | Layer to pitch | Action |
 |---|---|---|
-| 75+ | **Grande** | Run `/prospect` immediately, this week |
-| 60-74 | **Grande**, mediana as fallback | Run `/prospect`, prepare the downsell in advance |
-| 45-59 | **Mediana** | Queue it; contact when the grande pipeline has slack |
-| 30-44 | **Micro** | Only if the visit costs nothing extra (same street as another prospect) |
-| <30 | None | Drop |
+| 75+ | **Grande** | Publish; recommend preparing this week |
+| 60-74 | **Grande**, mediana as fallback | Publish; prepare the downsell in advance |
+| 45-59 | **Mediana** | Publish; lower priority on the board |
+| 30-44 | **Micro** | Publish only if the visit costs nothing extra (same street as another prospect) |
+| <30 | None | Drop — never reaches the board |
+
+Everything above 30 is published to Notion. The threshold sorts the board; it does not decide
+who gets a visit.
 
 ---
 
@@ -222,5 +244,21 @@ quotes come back incomplete". Get it right or the whole pitch collapses.
 [value from the taxonomy in 02-local-prospects.md]
 
 ### Next step
-[/prospect "<Business>" <Sector> | queue | drop]
+[/prospect-sync to publish | drop]
 ```
+
+## State vocabulary
+
+Two separate state fields, and confusing them corrupts the pipeline.
+
+**`Estado sourcing`** (in `prospects_qualified.csv`, owned by the commands) tracks how far a
+lead has moved through the machinery: `Calificado` -> `Publicado` -> `Promovido`, or
+`Descartado`.
+
+**`Estado`** (in Notion, owned by Freddy) tracks the real client relationship: `Prospecto` ->
+`Preparado` -> `Contactado` -> `En negociacion` -> `Cliente activo` / `Mantenimiento`, or
+`Descartado`.
+
+Only two commands write `Estado`: `/prospect-sync` sets `Prospecto` once at page creation, and
+`/prospect` sets `Preparado` once, and only if the page is still `Prospecto`. Everything after
+that is Freddy's, moved by hand on the board.

@@ -11,33 +11,68 @@ structure, local pricing, sector taxonomy, prospect scoring).
 - `local/prospects_raw.csv` - raw Google Maps sourcing dump (produced outside this repo)
 - `local/prospects_qualified.csv` - scored survivors (`/maps-qualify`)
 
-Commands: `/upwork-apply`, `/upwork-outcome`, `/upwork-sync` · `/maps-qualify`, `/prospect`,
-`/prospect-demo`, `/prospect-followup`, `/prospect-outcome`, `/prospect-sync`.
+Commands: `/upwork-apply`, `/upwork-outcome`, `/upwork-sync` · `/maps-qualify`,
+`/prospect-sync`, `/prospect`, `/prospect-demo`, `/prospect-followup`, `/prospect-outcome`.
 
-The CSV is the source of truth; Notion is the synced view (opposite of the Job Tracker, where
-Notion itself is manually edited). The `*-sync` commands overwrite Notion from the CSV on
-every run - that's intentional here.
+## Two directions of truth, one database
 
-## Two-stage local funnel
+The two channels sit in the same Notion database and follow **opposite** sync rules. This is
+deliberate, and the commands must never be unified.
 
-The sourcing files are deliberately **upstream of and separate from** `tracker.csv`:
+| | Source of truth | `Estado` behaviour |
+|---|---|---|
+| **Upwork** | the CSV | `/upwork-sync` overwrites Notion every run |
+| **Local Quito** | **Notion** | `/prospect-sync` never overwrites it |
+
+The reason is how Freddy actually works each channel. Local prospects are triaged and moved on
+the Notion board - often from his phone, right after a visit. Overwriting that from a file would
+silently destroy the only record of what happened in the field. Upwork he works from the CSV, so
+there the file wins.
+
+### Ownership contract (local rows)
+
+**Claude owns:** `Negocio / Proyecto`, `Canal`, `Sector`, `Necesidad detectada`, `Score`,
+`Capa`, `Place ID`, `Precio ofertado`, page body.
+
+**Freddy owns, never overwritten:** `Estado`, `Fecha contacto`, `Fecha seguimiento`, `Notas`,
+`Precio cerrado`, `Demo hecho`.
+
+Two narrow exceptions, both write-once: `/prospect-sync` sets `Estado=Prospecto` at page
+creation, and `/prospect` sets `Estado=Preparado` if - and only if - the page is still
+`Prospecto`.
+
+## The local funnel
 
 ```
 Google Maps  →  prospects_raw.csv  →  /maps-qualify  →  prospects_qualified.csv
                                                                   ↓
-                                                            /prospect
+                                                          /prospect-sync
                                                                   ↓
-                                            tracker.csv  →  /prospect-sync  →  Notion
+                                                      Notion board (triage)
+                                                                  ↓
+                                                    Freddy picks one → /prospect
+                                                                  ↓
+                                                           tracker.csv
 ```
 
-`tracker.csv`'s 15 columns map 1:1 onto the Notion database and have nowhere to hold a score,
-a layer or a review quote. Keeping the funnel separate means dozens of unqualified leads never
-pollute the tracker, and the tracker stays exactly as wide as Notion is. A business crosses
-over only when `/prospect` runs on it - the point where a lead becomes a real prospect.
+This mirrors the job-search flow one-to-one: `/maps-qualify` is `/rank`, `/prospect-sync` is
+`/notion-sync`, `/prospect` is `/apply-json`. The scoring ranks what reaches the board; it never
+decides who gets contacted.
+
+`/prospect-sync --pull` runs the reverse half, bringing state from Notion down into the CSVs so
+the local files stay an accurate history rather than drifting into fiction.
+
+**`Place ID` is the dedup anchor** for the whole local pipeline - the equivalent of the Job
+Tracker's `Key`. Business names in Quito collide, so name matching would duplicate or, worse,
+overwrite the wrong client. A local row without a Place ID cannot be synced.
+
+`/prospect-followup` reads its dates from **Notion**, not the CSV, since that is where Freddy
+records a real visit. `/prospect-outcome` no longer moves state at all; it records the long-form
+outcome and `Precio cerrado`.
 
 ## Google Maps sourcing (manual, for now)
 
-Claude Code has no Google Maps access. Sourcing currently happens in a Claude.ai session with
-Places access; the resulting CSV is dropped into `local/prospects_raw.csv` by hand. Once the
-flow is validated, the intended migration is a Google Places API key and a `/maps-scrape`
-command so sourcing runs locally without a chat session.
+Claude Code has no Google Maps access. Sourcing happens in a Claude.ai session with Places
+access; the resulting CSV is dropped into `local/prospects_raw.csv` by hand. Once the flow is
+validated, the intended migration is a Google Places API key and a `/maps-scrape` command so
+sourcing runs locally without a chat session.
