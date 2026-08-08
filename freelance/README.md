@@ -9,10 +9,11 @@ structure, local pricing, sector taxonomy, prospect scoring).
 - `local/<negocio>/` - one folder per prospect: `prospect.md` (`/prospect`), `demo.md`
   (`/prospect-demo`)
 - `local/prospects_raw.csv` - raw Google Maps sourcing dump (produced outside this repo)
-- `local/prospects_qualified.csv` - scored survivors (`/maps-qualify`)
+- `local/prospects_qualified.csv` - scored prospects, from `/maps-qualify` and `/add-prospect`
 
 Commands: `/upwork-apply`, `/upwork-outcome`, `/upwork-sync` · `/maps-qualify`,
-`/prospect-sync`, `/prospect`, `/prospect-demo`, `/prospect-followup`, `/prospect-outcome`.
+`/add-prospect`, `/prospect-sync`, `/prospect`, `/prospect-demo`, `/prospect-followup`,
+`/prospect-outcome`.
 
 ## Two directions of truth, one database
 
@@ -46,6 +47,8 @@ creation, and `/prospect` sets `Estado=Preparado` if - and only if - the page is
 ```
 Google Maps  →  prospects_raw.csv  →  /maps-qualify  →  prospects_qualified.csv
                                                                   ↓
+   /add-prospect (referidos, observados)  ────────────────────────→
+                                                                  ↓
                                                           /prospect-sync
                                                                   ↓
                                                       Notion board (triage)
@@ -54,6 +57,15 @@ Google Maps  →  prospects_raw.csv  →  /maps-qualify  →  prospects_qualifie
                                                                   ↓
                                                            tracker.csv
 ```
+
+Two entrances, one funnel. Cold rows arrive through Maps; warm ones - referrals, walk-ins,
+personal network - through `/add-prospect`, which accepts observed and stated pain as evidence
+since those businesses have no useful reviews. Both land in the same qualified file and reach
+the same board, so nothing bypasses triage.
+
+The `Origen` column (`Maps` / `Referido` / `Red personal` / `Observado`) keeps warm and cold
+conversion rates separate. Mixed together they are meaningless: a healthy referral pipeline
+hides a completely broken cold pitch, and vice versa.
 
 This mirrors the job-search flow one-to-one: `/maps-qualify` is `/rank`, `/prospect-sync` is
 `/notion-sync`, `/prospect` is `/apply-json`. The scoring ranks what reaches the board; it never
@@ -64,7 +76,8 @@ the local files stay an accurate history rather than drifting into fiction.
 
 **`Place ID` is the dedup anchor** for the whole local pipeline - the equivalent of the Job
 Tracker's `Key`. Business names in Quito collide, so name matching would duplicate or, worse,
-overwrite the wrong client. A local row without a Place ID cannot be synced.
+overwrite the wrong client. A local row without a Place ID cannot be synced; prospects with no
+Maps listing get a synthetic `manual:<slug>` anchor from `/add-prospect`.
 
 `/prospect-followup` reads its dates from **Notion**, not the CSV, since that is where Freddy
 records a real visit. `/prospect-outcome` no longer moves state at all; it records the long-form

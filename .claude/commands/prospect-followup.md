@@ -24,9 +24,9 @@ A page is due when:
 - `Fecha seguimiento` is today or earlier, **or** `Fecha seguimiento` is empty and
   `Fecha contacto` is 5+ days ago
 
-Skip `Prospecto` and `Preparado` — those have never been contacted, so there is nothing to
-follow up on. Skip `Cliente activo`, `Mantenimiento`, `Descartado`, and `En negociacion` — a
-live negotiation needs a real reply, not a templated nudge.
+Skip `Prospecto`, `En revision` and `Preparado` — those have never been contacted, so there is
+nothing to follow up on. Skip `Cliente activo`, `Mantenimiento`, `Descartado`, and
+`En negociacion` — a live negotiation needs a real reply, not a templated nudge.
 
 ## Step 2: Determine the touch number
 

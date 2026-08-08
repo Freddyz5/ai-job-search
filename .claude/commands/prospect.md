@@ -22,13 +22,34 @@ quote and the operational process behind it. That is far stronger material than 
 fresh search will produce, and re-deriving it wastes the sourcing work.
 
 When a qualified row exists:
-- Skip the guesswork in Step 1; `Necesidad detectada` and `Sector` are already set
+- `Necesidad detectada` and `Sector` are already set — but see the verification rule below
 - Build the Step 2 script around the **quoted review**, not around the website's state
 - Price to the assigned `Capa` in Step 3
 - Carry its `Place ID` into the tracker row — it is the dedup anchor `/prospect-sync` matches on
 - Set `Estado sourcing=Promovido` on the qualified row once the tracker row is written
 
-If there's no qualified row, continue below - manual prospects stay fully supported.
+### Verify the web claim before using it — always
+
+**A qualified row never exempts this check.** Sourcing data on web presence is unreliable: the
+Places API often omits the field, and businesses whose whole storefront is Facebook or Instagram
+were recorded as blank. Rows carrying `Tipo web=Desconocido` are unverified by construction.
+
+Before writing any sentence that asserts something about their web presence:
+
+1. `WebSearch` the business name + "Quito", and check the `Web` value if there is one.
+2. Update `Tipo web` on the qualified row with what was actually found — `Propia`, `Facebook`,
+   `Instagram` or `Ninguna`. This is a real finding now, so record it.
+3. If a site turns up that sourcing missed, **correct `Necesidad detectada`** before continuing.
+   A business with a working site does not need `Sin web`; it may need `Web desactualizada`,
+   or more likely the operational need the reviews already point at.
+4. Say plainly in the output that the sourcing data was wrong and what it was corrected to.
+
+The reason this is non-negotiable: the approach script gets spoken out loud. Opening with "vi
+que no tienen página web" to an owner who has one ends the conversation in the first sentence,
+and the operational pain from the reviews — the actual reason this prospect scored well — never
+gets said at all.
+
+If no qualified row exists, continue below - manual prospects stay fully supported.
 
 ## Step 1: Detect the Need
 
@@ -76,9 +97,10 @@ and `Precio ofertado` on it, so the board shows what is ready to go out this wee
 
 This is the **one** exception to the ownership contract in `/prospect-sync`, and it is narrow on
 purpose: `Preparado` is a fact about work Claude just produced, not a judgement about the
-client relationship. Only make this write when the page is currently `Prospecto`. If Freddy has
-already moved it to anything else, leave it alone and say so — he knows something about that
-business that the file does not.
+client relationship. Only make this write when the page is currently `Prospecto` or
+`En revision` — both mean Freddy has not contacted the business yet, so nothing is lost by
+advancing them. If it sits at anything further along, leave it alone and say so; he knows
+something about that business the file does not.
 
 If no page exists (a manual prospect that never went through sourcing), skip this and mention
 that `/prospect-sync` will not publish it, since it has no `Place ID`.

@@ -16,12 +16,18 @@ is its `/notion-sync`, and `/prospect` is its `/apply-json`.
 ```
 Google Maps -> prospects_raw.csv -> /maps-qualify -> prospects_qualified.csv
                                                             |
+         /add-prospect (referrals, walk-ins) --------------->|
+                                                            |
                                                    /prospect-sync -> Notion board
                                                             |
                                               Freddy triages, picks one
                                                             |
                                               /prospect -> tracker.csv
 ```
+
+Two entrances, one funnel. Cold rows arrive through Maps; warm ones — referrals, walk-ins,
+network — through `/add-prospect`. Both land in the same qualified file and reach the same
+board, so nothing bypasses triage.
 
 **Notion is the source of truth for pipeline state; the CSVs are history.** Scoring exists to
 rank what reaches the board — it never decides who gets contacted. That call is Freddy's, made
@@ -134,6 +140,11 @@ Hard filter, not a scoring dimension. A FAIL is dropped without a score and with
 about late orders is a better prospect than a 3.2-star business with eleven reviews about rude
 staff. Read the review text, not the score.
 
+**The gate is relaxed for warm prospects.** The review-count and digital-presence rules exist to
+filter cold noise; a referral or a personal contact already carries the trust those rules were
+standing in for. Chain/franchise, medical clinic, and off-tier vertical still apply with no
+exception — see `/add-prospect`.
+
 ---
 
 ## Scoring dimensions
@@ -142,12 +153,18 @@ Score only what passed the gate.
 
 ### 1. Operational pain evidence (0-100) — weight 40%
 
+For Maps-sourced rows the evidence is the reviews:
+
 | Score | Meaning |
 |---|---|
 | 80-100 | 3+ reviews naming delays, stock errors, unanswered orders, invoicing or quoting failures |
 | 60-79 | 1-2 such reviews, specific and recent |
 | 40-59 | Pain implied but not stated ("slow", "disorganised") with no detail |
 | 0-39 | No operational signal in the reviews |
+
+Rows added by `/add-prospect` score this dimension from **observed or stated** evidence instead
+— see that command's Step 3 for the ceilings. A problem the owner named out loud outranks any
+review; a review is only a proxy for exactly that.
 
 Anything below 40 here caps the prospect at the mediana layer regardless of other scores.
 
@@ -172,8 +189,30 @@ existing ERP has no need.
 |---|---|
 | 80-100 | Has a basic site or active social commerce, clearly outgrown it, no visible internal system |
 | 60-79 | Outdated site, or Facebook/Instagram used as the whole storefront |
-| 40-59 | No digital presence whatsoever |
+| 40-59 | Confirmed no digital presence whatsoever |
 | 0-39 | Already runs a real ERP or custom system |
+
+#### Absent is not unknown
+
+**An empty `Web` field is missing data, not evidence of absence.** Places does not reliably
+return a website, and social-only businesses were being recorded as blank. Treating blank as
+"has no website" produced a run of false positives — businesses pitched as needing a site that
+already had one.
+
+The `Tipo web` column carries the distinction: `Propia`, `Facebook`, `Instagram`, `Ninguna`,
+`Desconocido`.
+
+- `Ninguna` is a **positive finding** and only valid when someone actually looked. Score 40-59.
+- `Desconocido` means nobody has checked. **Do not score this dimension at all.** Redistribute
+  its 15% across the other three proportionally, report the total as partial, and say which
+  dimension went unscored.
+- Never write `Necesidad detectada=Sin web` from a `Desconocido`. That value is a factual claim
+  about the business that ends up spoken out loud in the approach script, and being wrong about
+  it in the first sentence costs the whole visit.
+
+The same rule generalises: for every dimension, a blank source field means *unscored*, never
+zero. A confident number derived from no data is worse than an honest gap, because only the gap
+can be checked before Freddy walks in.
 
 ### 4. Reachability (0-100) — weight 20%
 
@@ -255,10 +294,30 @@ Two separate state fields, and confusing them corrupts the pipeline.
 lead has moved through the machinery: `Calificado` -> `Publicado` -> `Promovido`, or
 `Descartado`.
 
-**`Estado`** (in Notion, owned by Freddy) tracks the real client relationship: `Prospecto` ->
-`Preparado` -> `Contactado` -> `En negociacion` -> `Cliente activo` / `Mantenimiento`, or
-`Descartado`.
+**`Estado`** (in Notion, owned by Freddy) tracks the real client relationship:
+
+| Estado | Meaning | Who sets it |
+|---|---|---|
+| `Prospecto` | Qualified and on the board, untouched | `/prospect-sync`, at page creation |
+| `En revision` | Freddy is studying this one right now — reading the full Maps reviews, checking socials. A bookmark so he does not lose his place mid-triage | Freddy |
+| `Preparado` | Approach script and priced proposal exist | `/prospect`, once |
+| `Contactado` | Real contact happened. **This is what arms `/prospect-followup`** | Freddy |
+| `Demo listo` | Demo built and shown — only ever after a reply | Freddy |
+| `En negociacion` | Actively discussing scope or price | Freddy |
+| `Cliente activo` | Closed, project running or delivered | Freddy |
+| `Mantenimiento` | Delivered, with a recurring monthly retainer | Freddy |
+| `Descartado` | Dead. Also stops `/maps-qualify` resurrecting it | Freddy |
+
+`Prospecto`, `En revision` and `Preparado` all mean *not yet contacted*: nothing is due for
+follow-up, and `/prospect` may advance the first two to `Preparado`.
 
 Only two commands write `Estado`: `/prospect-sync` sets `Prospecto` once at page creation, and
-`/prospect` sets `Preparado` once, and only if the page is still `Prospecto`. Everything after
+`/prospect` sets `Preparado` once, and only from `Prospecto` or `En revision`. Everything after
 that is Freddy's, moved by hand on the board.
+
+## `Canal` is not `Origen`
+
+Local rows are **always** `Canal=Local Quito`. The database also carries a `Canal=Referido`
+option; never use it. `/prospect-sync` and `/prospect-followup` both filter on
+`Canal=Local Quito`, so a referral tagged that way silently never syncs and never generates a
+follow-up. How a prospect was found belongs in `Origen`.

@@ -19,12 +19,17 @@ If `freelance/local/prospects_raw.csv` doesn't exist or is empty, stop and tell 
 sourcing session hasn't produced a file yet. Expected columns:
 
 ```
-Negocio,Rubro,Direccion,Telefono,Rating,Num resenas,Horario,Resenas negativas,Resenas positivas,Web,Place ID
+Negocio,Rubro,Direccion,Telefono,Rating,Num resenas,Horario,Resenas negativas,Resenas positivas,Web,Tipo web,Place ID
 ```
 
 Missing columns are tolerated — score what's there and note in the output which dimension had
 to be estimated on incomplete data. Never silently score a dimension with no evidence behind
 it.
+
+**A blank `Web` is not proof of no website.** Older raw files predate the `Tipo web` column; if
+it is absent, treat every row as `Desconocido` rather than assuming absence, and say so in the
+report. That assumption produced real false positives — prospects flagged as needing a site who
+already had one, findable from their own Maps listing.
 
 ## Step 1: Dedup
 
@@ -61,11 +66,21 @@ Append survivors to `freelance/local/prospects_qualified.csv`, creating it with 
 it doesn't exist:
 
 ```
-Negocio,Place ID,Sector,Rubro,Tier,Score,Score pain,Score volumen,Score madurez,Score alcance,Capa,Dolor citado,Fecha resena,Proceso operativo,Necesidad detectada,Telefono,Direccion,Zona,Web,Estado sourcing,Fecha calificacion,Notas
+Negocio,Place ID,Origen,Sector,Rubro,Tier,Score,Score pain,Score volumen,Score madurez,Score alcance,Capa,Dolor citado,Fecha resena,Proceso operativo,Necesidad detectada,Telefono,Direccion,Zona,Web,Tipo web,Estado sourcing,Fecha calificacion,Notas
 ```
+
+- `Tipo web` is one of `Propia` / `Facebook` / `Instagram` / `Ninguna` / `Desconocido`. Default
+  to `Desconocido` whenever the raw row is blank — `Ninguna` is a claim, and it requires that
+  someone actually looked.
+- Leave `Necesidad detectada` **empty** when `Tipo web=Desconocido` and no review-based need is
+  evident. An empty cell is honest; `Sin web` on unverified data becomes a false statement made
+  to the owner's face.
 
 - `Place ID` is mandatory. A row without one cannot be synced or deduped — if the raw row is
   missing it, report the row as unusable rather than writing it with an empty anchor.
+- `Origen` is `Maps` for every row this command writes. `/add-prospect` writes `Referido`,
+  `Red personal` or `Observado` — keeping those separate is what stops warm-lead conversion
+  rates from masking a broken cold pitch.
 - The four `Score *` columns carry the per-dimension scores so `/prospect-sync` can publish the
   breakdown into the Notion page body without re-deriving it.
 
@@ -79,8 +94,11 @@ Negocio,Place ID,Sector,Rubro,Tier,Score,Score pain,Score volumen,Score madurez,
 
 ## Step 6: Report
 
-Show a table sorted by score descending: business, tier, score, layer, one-line pain. Then a
-summary: rows read, dropped (with the reason breakdown), skipped as duplicates, qualified.
+Show a table sorted by score descending: business, tier, score, layer, one-line pain. Mark any
+row whose total is partial (a dimension went unscored) so it is visibly less trustworthy than a
+fully scored one. Then a summary: rows read, dropped (with the reason breakdown), skipped as
+duplicates, qualified, and **how many carry `Tipo web=Desconocido`** — that count is the size of
+the verification backlog `/prospect` will have to close before any of them can be pitched.
 
 Close with the top 3 by score and remind that the next step is **`/prospect-sync`**, which
 publishes everything qualified to Notion for triage — not `/prospect`, which comes after Freddy
